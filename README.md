@@ -9,4 +9,4 @@ D. This app helps gather information about nba players to create an optimal fant
 
 E. Python, C++, scrapy
 
-F. The input will be the positions you need or players you already have on your team and it will return the best players for the position and let you add them to your team
+F. The input will be the positions you need or players you already have on your team and it will output your team and data into a text file
