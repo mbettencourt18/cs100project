@@ -5,6 +5,10 @@
 
 class PfCnAst : public AstBase{
 
+        PfCnAst() : AstBase () {};
+        double rate(vector <double> stats){
+                return 10 * /* assists */ / 10.6;
+        }
 
 };
 
