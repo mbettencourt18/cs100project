@@ -4,8 +4,10 @@
 #include "AstBase.hpp"
 
 class PgAst : public AstBase{
-
-
+	PgAst() : AstBase () {};
+	double rate(vector <double> stats){
+		return 30 * /* assists */ / 10.6;
+	}
 };
 
 #endif
