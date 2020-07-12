@@ -4,6 +4,7 @@
 #include "DefBase.hpp"
 
 class PgSgDef : public DefBase{
+	public:
 	PgSgDef() : DefBase() {};
 	double rate(vector<double> stats){
 		return 20 * ( /*steals*/ * 3 + /*blocks*/) / 6;

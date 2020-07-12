@@ -1,13 +1,13 @@
-#ifndef __PFCNASSIST_HPP__
-#define __PFCNASSIST_HPP__
+#ifndef __PFCNAST_HPP__
+#define __PFCNAST_HPP__
 
 #include "AstBase.hpp"
 
 class PfCnAst : public AstBase{
-
+	public:
         PfCnAst() : AstBase () {};
         double rate(vector <double> stats){
-                return 10 * /* assists */ / 10.6;
+                return 10 * /* assists */ / 7;
         }
 
 };
