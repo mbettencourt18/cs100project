@@ -5,6 +5,10 @@
 
 class SgSfAst : public AstBase{
 
+	SgSfAst() : AstBase () {};
+        double rate(vector <double> stats){
+                return 20 * /* assists */ / 10.6;
+        }
 
 };
 
