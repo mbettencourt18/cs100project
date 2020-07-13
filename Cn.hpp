@@ -1,13 +1,13 @@
-#ifndef __CR_HPP__
-#define __CR_HPP__
+#ifndef __CN_HPP__
+#define __CN_HPP__
 
 #include "Player.hpp"
 
-class Cr : public Player{
+class Cn : public Player{
 	public: 
 	
-	Cr(){}
-	Cr(Vector<string> AllPlayers)
+	Cn(){}
+	Cn(Vector<Player*> AllPlayers)
 
 	std::string FirstName();
 	std::string LastName();

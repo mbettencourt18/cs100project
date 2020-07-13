@@ -6,8 +6,8 @@
 class Pg : public Player{
         public:
 
-        Cr(){}
-        Cr(Vector<string> AllPlayers)
+        pg(){}
+        Pg(Vector<Player*> AllPlayers)
 
         std::string FirstName();
         std::string LastName();

@@ -6,8 +6,8 @@
 class Sf : public Player{
         public:
 
-        Cr(){}
-        Cr(Vector<string> AllPlayers)
+        Sf(){}
+        Sf(Vector<Player*> AllPlayers)
 
         std::string FirstName();
         std::string LastName();

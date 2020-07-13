@@ -6,12 +6,12 @@
 class Pf : public Player{
         public:
 
-        Cr(){}
-        Cr(Vector<string> AllPlayers)
+        Pf(){}
+       	Pf(Vector<Player*> AllPlayers)
 
         std::string FirstName();
         std::string LastName();
-        double rating(AstBase* , DefBase*, PpgBase*, RebBase*, FgpcntBase*      );
+        double rating(AstBase* , DefBase*, PpgBase*, RebBase*, FgpcntBase*      ): 
 
 
         AstBase* Assist;
