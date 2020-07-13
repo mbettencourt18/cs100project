@@ -4,6 +4,11 @@
 #include "RbBase.hpp"
 
 class SfReb : public RbBase{
+	public:
+	SfReb() : RbBase () {};
+        double rate(vector<double> stats){
+                return 20 * /* rebounds */ / 8;
+        }
 
 
 };
