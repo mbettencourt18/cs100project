@@ -11,7 +11,7 @@ class Pf : public Player{
 
         std::string FirstName();
         std::string LastName();
-        double rating(AstBase* , DefBase*, PpgBase*, RebBase*, FgpcntBase*      ): 
+        double rating(); 
 
 
         AstBase* Assist;
