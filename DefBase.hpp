@@ -3,7 +3,7 @@
 
 class DefBase {
 	DefBase() {};
-	virtual double rate(vector<double> );
+	virtual double rate(Player* );
 };
 
 #endif

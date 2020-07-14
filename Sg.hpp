@@ -11,7 +11,7 @@ class Sg : public Player{
 
         std::string FirstName();
         std::string LastName();
-        double rating(AstBase* , DefBase*, PpgBase*, RebBase*, FgpcntBase*      );
+        double rating(Player*);
 
 
         AstBase* Assist;

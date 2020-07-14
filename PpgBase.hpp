@@ -3,7 +3,7 @@
 
 class PpgBase {
 	PpgBase() {};
-	virtual double rate(vector<double>);
+	virtual double rate(Player* );
 };
 
 #endif

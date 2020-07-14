@@ -24,7 +24,7 @@ class Player {
 	/* Constructors */
         Player() { };
         /* Pure Virtual Functions */
-        virtual double rating() = 0;
+        virtual double rating(Player* ) = 0;
         virtual std::string FirstName() = 0;
 	virtual std::string LastName() = 0;
 	virtual double  GetAssists()= 0;

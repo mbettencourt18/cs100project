@@ -6,7 +6,7 @@ using namespace std;
 class RbBase {
         public:
                 RbBase(){};
-                virtual double rate(vector <double>);
+                virtual double rate(Player* );
 }
 
 #endif

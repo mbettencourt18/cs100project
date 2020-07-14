@@ -6,8 +6,8 @@
 class PgSgSfFgPcnt : public FgPcntBase{
 	public:
 		PgSgSfFgPcnt() : FgPcntBase() {};
-		double rate (vector<double> stats){
-			return 20 * /* fg percent */ / 48;
+		double rate (Player* player){
+			return 20 * player.GetFGPercent() / 48;
 		}
 
 };

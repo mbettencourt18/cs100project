@@ -6,8 +6,8 @@
 class PfCnDef : public DefBase{
 	public:
         PfCnDef() : DefBase() {};
-        double rate(vector<double> stats){
-                return 20 * ( /*steals*/ + (/*blocks*/ * 2)) / 5;
+        double rate(Player* player){
+                return 20 * ( player.GetSteals() + (player.GetBlocks() * 2)) / 5;
         }
 
 };
