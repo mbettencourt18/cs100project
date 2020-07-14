@@ -3,15 +3,34 @@
 
 #include <string>
 
+#include "Base.hpp"
+#include "Player.hpp"
+
 class Team {
     public:
         /* Constructors */
         Team() { };
 	Team(string Name): TeamName(Name);
-        /* Pure Virtual Functions */
-        virtual double rating() = 0;
-        string TeamName = 0;
-  
+        double rating(){
+		double rating;
+		for(int i = 0; i < 5; ++i){
+			rating += list[i].rate();
+		}
+		return rating / 5;
+	}
+        string TeamName;
+  	Player* list[5];
+	void displayTeam(){
+		for(int i = 0; i < 5; ++i){
+			list[i].print();
+		}
+	}
+	void AddPlayer(Player* player, int pos){
+		list[pos] = player;
+	}
+	void RemovePlayer(int pos){
+		list[pos] = nullptr;
+	}
 };
 
 #endif

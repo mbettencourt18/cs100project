@@ -4,7 +4,7 @@
 class FgPcntBase {
 	public:
 	FgPcntBase() {};
-	virtual double rate(vector<double> );
+	virtual double rate(Player* );
 };
 
 #endif
