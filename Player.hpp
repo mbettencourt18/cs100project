@@ -4,16 +4,25 @@
 #include <string>
 
 class Player {
+    private:
+    vector<Player*> list;
+    int rank;
+    string name;
+    string team;
+     double rebounds;
+    double points;
+    double assists;
+    double steals;
+    double blocks;
+    double FGPercent;
+    double FGA;
+    double test;
+    double threePA;
+    double threeP;
 
-	protected: 
-
-	Player* player;
-	double* rebounds;
-	double* points,* assists,* steals,* blocks,* FGPercent,* FGA;
-    public:
-        /* Constructors */
+        public:
+	/* Constructors */
         Player() { };
-
         /* Pure Virtual Functions */
         virtual double rating() = 0;
         virtual std::string FirstName() = 0;
@@ -29,3 +38,4 @@ class Player {
 };
 
 #endif
+
