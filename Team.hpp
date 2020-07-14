@@ -3,15 +3,20 @@
 
 #include <string>
 
+#include "Base.hpp"
+#include "Player.hpp"
+
 class Team {
     public:
         /* Constructors */
         Team() { };
 	Team(string Name): TeamName(Name);
-        /* Pure Virtual Functions */
-        virtual double rating() = 0;
+        double rating() = 0;
         string TeamName = 0;
-  
+  	Player list[5];
+	void printTeam();
+	void AddPlayer(string pos);
+	void RemovePlayer(string pos);
 };
 
 #endif
