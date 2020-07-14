@@ -11,12 +11,26 @@ class Team {
         /* Constructors */
         Team() { };
 	Team(string Name): TeamName(Name);
-        double rating() = 0;
-        string TeamName = 0;
-  	Player list[5];
-	void printTeam();
-	void AddPlayer(string pos);
-	void RemovePlayer(string pos);
+        double rating(){
+		double rating;
+		for(int i = 0; i < 5; ++i){
+			rating += list[i].rate();
+		}
+		return rating / 5;
+	}
+        string TeamName;
+  	Player* list[5];
+	void displayTeam(){
+		for(int i = 0; i < 5; ++i){
+			list[i].print();
+		}
+	}
+	void AddPlayer(Player* player, int pos){
+		list[pos] = player;
+	}
+	void RemovePlayer(int pos){
+		list[pos] = nullptr;
+	}
 };
 
 #endif
