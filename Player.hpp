@@ -5,9 +5,9 @@
 
 class Player {
 
-	protected: 
+	private: 
 
-	Player* player;
+	string player;
 	double* rebounds;
 	double* points,* assists,* steals,* blocks,* FGPercent,* FGA;
     public:
