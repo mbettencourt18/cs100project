@@ -34,6 +34,7 @@ class Player {
 	virtual double GetBlocks()=0;
 	virtual double GetFGPercent()= 0;;
 	virtual double GetFGA()=0;
+	virtual double print();
 	
 };
 
