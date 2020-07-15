@@ -1,14 +1,17 @@
 #ifndef Player_Header_h
 #define Player_Header_h
-
+#include <stdio.h>
 #include <iostream>
 #include <string>
+#include <list>
+#include <vector>
+
 using namespace std;
 
 class Player{
   
 private:
-    vector<Player*> list;
+    vector<Player*> player_list;
     int rank;
     string name;
     string team;
@@ -19,13 +22,17 @@ private:
     double blocks;
     double FGPercent;
     double FGA;
-    double test;
     double threePA;
     double threeP;
+    
+    
 public:
-    void parser(vector<string> player);
-    Player(){};
+     Player(int rank, string naem, string team, double rebounds, double points, double assists,
+            double steals, double blocks, double FGPerecent, double FGA, double threePA, double threeP);
+    void Parser(list<string> player);
+    void getplayer(string p);
+    void main();
+   
     
 };
 #endif /* Player_Header_h */
-
