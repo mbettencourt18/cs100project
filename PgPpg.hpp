@@ -6,8 +6,8 @@
 class PgPpg : public PpgBase{
 	public:
 		PgPpg() : PpgBase() {};
-		double rate(vector<double> stats){
-			return 25 * /* ppg */ / 27;
+		double rate(Player* player){
+			return 25 * player.GetPoints() / 27;
 		}
 };
 

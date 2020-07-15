@@ -6,8 +6,8 @@
 class PgSgDef : public DefBase{
 	public:
 	PgSgDef() : DefBase() {};
-	double rate(vector<double> stats){
-		return 20 * ( /*steals*/ * 3 + /*blocks*/) / 6;
+	double rate(Player* player){
+		return 20 * ( player.GetAssists() * 3 + player.GetAssists()) / 6;
 
 };
 

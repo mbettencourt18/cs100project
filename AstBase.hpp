@@ -6,7 +6,7 @@ using namespace std;
 class AstBase {
 	public:
 		AstBase(){};
-		virtual double rate(vector <double>);
+		virtual double rate(Player* );
 }
 
 #endif

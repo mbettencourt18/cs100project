@@ -4,10 +4,9 @@
 #include "RbBase.hpp"
 
 class SfReb : public RbBase{
-	public:
 	SfReb() : RbBase () {};
-        double rate(vector<double> stats){
-                return 20 * /* rebounds */ / 8;
+        double rate(Player* player){
+                return 20 * player.GetReb() / 8;
         }
 
 

@@ -6,8 +6,8 @@
 class PgAst : public AstBase{
 	public:
 	PgAst() : AstBase () {};
-	double rate(vector <double> stats){
-		return 30 * /* assists */ / 10.6;
+	double rate(Player* player){
+		return 30 * player.GetAssists() / 10.6;
 	}
 };
 

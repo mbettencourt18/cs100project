@@ -6,8 +6,8 @@
 class PfCnReb : public RbBase{
 	public:
 	SfReb() : RbBase () {};
-        double rate(vector<double> stats){
-                return 30 * /* rebounds */ / 12;
+        double rate(Player* player){
+                return 30 * player.GetReb() / 12;
         }
 
 

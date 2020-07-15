@@ -4,18 +4,17 @@
 #include <string>
 
 class Player {
+	private: 
 
-	protected: 
-
-	Player* player;
+	string player;
 	double* rebounds;
 	double* points,* assists,* steals,* blocks,* FGPercent,* FGA;
-    public:
         /* Constructors */
+        public:
+	/* Constructors */
         Player() { };
-
         /* Pure Virtual Functions */
-        virtual double rating() = 0;
+        virtual double rating(Player* ) = 0;
         virtual std::string FirstName() = 0;
 	virtual std::string LastName() = 0;
 	virtual double  GetAssists()= 0;
@@ -25,7 +24,9 @@ class Player {
 	virtual double GetBlocks()=0;
 	virtual double GetFGPercent()= 0;;
 	virtual double GetFGA()=0;
+	virtual double print();
 	
 };
 
 #endif
+
