@@ -1,5 +1,5 @@
-#ifndef Player_Header_h
-#define Player_Header_h
+#ifndef Test_Player_hpp
+#define Test_Player_hpp
 #include <stdio.h>
 #include <iostream>
 #include <string>
