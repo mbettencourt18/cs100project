@@ -6,9 +6,9 @@
 class Player {
 	private: 
 
-	string player;
-	double* rebounds;
-	double* points,* assists,* steals,* blocks,* FGPercent,* FGA;
+	string name;
+	double rebounds;
+	double points, assists, steals, blocks, FGPercent, FGA, threePA, threeP;
         /* Constructors */
         public:
 	/* Constructors */
@@ -24,6 +24,8 @@ class Player {
 	virtual double GetBlocks()=0;
 	virtual double GetFGPercent()= 0;;
 	virtual double GetFGA()=0;
+	virtual double GetThreePA;
+	virtual double getThreeP;
 	virtual double print();
 	
 };
