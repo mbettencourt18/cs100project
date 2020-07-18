@@ -10,7 +10,7 @@
 
 using namespace std;
 static vector<Player*> list_p;
-Player::Player(int rank, string name, string team, double rebounds, double points, double assists,
+/*Player::Player(int rank, string name, string team, double rebounds, double points, double assists,
                  double steals, double blocks, double FGPerecent, double FGA, double threePA, double threeP){
     this->rank = rank;
     this->name = name;
@@ -25,7 +25,7 @@ Player::Player(int rank, string name, string team, double rebounds, double point
     this->threePA = threePA;
     this->threeP = threeP;
 }
-
+*/
 void Player::Parser(std::list<string> player){
     string name = " ";
     int rank = 0;

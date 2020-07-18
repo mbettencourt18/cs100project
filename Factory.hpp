@@ -26,50 +26,9 @@ class Sg;
 class Sf;
 class Pf;
 class Cn;
-
 class Factory {
 	public:
-		void Parser(vector<string>, vector<Player*>);
-
-	void ReadPlayers(vector<Player*> pg, vector<Player*> sg, vector<Player*> sf, vector<Player*> pf, vector<Player*> cn){
-		//Change file name
-		ifstream file("All_Positions_Stats.txt");
-    		string input;
-    		if (file.is_open()) {
-     		   	cout << "yes open" << endl;
-    		}
-    		else{
-        		cout << "file was not found" << endl;
-    		}
-    		while (file >> input) {
-       			getline(file,input);
-        		//cout << input <<endl;
-                	vector<string> player;
-    			std::istringstream ss(input);
-
-    			do {
-        			string tmp;
-        			ss >> tmp;
-        			player.push_back(tmp);
-        			//cout << tmp << endl;
-    			}while (ss);
-			if(player.at(3) == "PG"){
-				Parser(player, pg);
-			}else if(player.at(3) == "SG"){
-				Parser(player, sg);
-			}else if(player.at(3) == "SF"){
-				Parser(player, sf);
-			}else if(player.at(3) == "PF"){
-				Parser(player, pf);
-			}else if(player.at(3) == "CN"){
-				Parser(player, cn);
-			}else{
-				cout << "Error loading player: " << player.at(2);
-			}
-               }
-	}
-
-
+		//void Parser(vector<string>, vector<Player*>);
 	void Parser(vector<string> player, vector<Player*> playerList){
 		string name = " ";
     		int rank = 0;
@@ -169,4 +128,45 @@ class Factory {
                 }
 		playerList.push_back(p);	
 	}
+
+	void ReadPlayers(vector<Player*> pg, vector<Player*> sg, vector<Player*> sf, vector<Player*> pf, vector<Player*> cn){
+		//Change file name
+		ifstream file("All_Positions_Stats.txt");
+    		string input;
+    		if (file.is_open()) {
+     		   	cout << "yes open" << endl;
+    		}
+    		else{
+        		cout << "file was not found" << endl;
+    		}
+    		while (file >> input) {
+       			getline(file,input);
+        		//cout << input <<endl;
+                	vector<string> player;
+    			std::istringstream ss(input);
+
+    			do {
+        			string tmp;
+        			ss >> tmp;
+        			player.push_back(tmp);
+        			//cout << tmp << endl;
+    			}while (ss);
+			if(player.at(3) == "PG"){
+				Parser(player, pg);
+			}else if(player.at(3) == "SG"){
+				Parser(player, sg);
+			}else if(player.at(3) == "SF"){
+				Parser(player, sf);
+			}else if(player.at(3) == "PF"){
+				Parser(player, pf);
+			}else if(player.at(3) == "CN"){
+				Parser(player, cn);
+			}else{
+				cout << "Error loading player: " << player.at(2);
+			}
+               }
+	}
+
 };
+
+#endif

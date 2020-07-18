@@ -2,31 +2,82 @@
 #define __PLAYER_HPP__
 
 #include <string>
+#include <iostream>
+/*#include "AstBase.hpp"
+#include "DefBase.hpp"
+#include "FgPcntBase.hpp"
+#include "PpgBase.hpp"
+#include "RbBase.hpp"
+#include "PgAst.hpp"
+#include "SgSfAst.hpp"
+#include "PfCnAst.hpp"
+#include "PgSgDef.hpp"
+#include "SfDef.hpp"
+#include "PfCnDef.hpp"
+#include "PgSgSfFgPcnt.hpp"
+#include "PfCnFgPcnt.hpp"
+#include "PgPpg.hpp"
+#include "SgPpg.hpp"
+#include "SfPfPpg.hpp"
+#include "CnPpg.hpp"
+#include "PgSgRb.hpp"
+#include "SfRb.hpp"
+#include "PfCnRb.hpp"
 
+class RbBase;
+class AstBase;
+class DefBase; 
+class FgPcntBase;
+class PpgBase;
+class PgAst;
+class SgSfAst;
+class PfCnAst;
+class PgSgDef;
+class SfDef;
+class PfCnDef;
+class PgSgSfFgPcnt;
+class PfCnFgPcnt;
+class PgPpg;
+class SgPpg;
+class SfPfPpg;
+class CnPpg;
+class PgSgRb;
+class SfRb;
+class PfCnRb;
+*/
 class Player {
-	private: 
-
+	public: 
 	string name;
 	double rebounds;
-	double points, assists, steals, blocks, FGPercent, FGA, threePA, threeP;
+	double points, assists, steals, blocks, FGPercent, FGA, threePA, threeP, rank;
         /* Constructors */
-        public:
+        //public:
 	/* Constructors */
         Player() { };
         /* Pure Virtual Functions */
-        virtual double rating(Player* ) = 0;
-        virtual std::string FirstName() = 0;
-	virtual std::string LastName() = 0;
-	virtual double  GetAssists()= 0;
-	virtual double GetReb()= 0;
-	virtual double GetPoints()=0;
-	virtual double GetSteals()=0;
-	virtual double GetBlocks()=0;
-	virtual double GetFGPercent()= 0;;
-	virtual double GetFGA()=0;
-	virtual double GetThreePA;
-	virtual double getThreeP;
-	virtual double print();
+        double rating(Player* ){
+		return Assists->rate(this) + Defense->rate(this) + FgPcnt->rate(this) + Points->rate(this) + Rebounds->rate(this);
+	}
+	AstBase* Assist;
+        DefBase* Defense;
+        FgPcntBase* FGPcnt;
+        PpgBase* Points;
+        RbBase* Rebounds;
+
+        string GetName(){return name;}
+	double  GetAssists(){return assits;}
+	double GetReb(){return rebounds;}
+	double GetPoints(){return points;}
+	double GetSteals(){return steals;}
+	double GetBlocks(){return blocks;}
+	double GetFGPercent(){return FGPercent;}
+	double GetFGA(){return FGA;}
+	double GetThreePA {return threePA;}
+	double getThreeP{return threeP;}
+	double print(){
+		cout << name << " Rating: " << rank << " Assists: " << assists; 
+/* finish print */
+	} 
 	
 };
 
