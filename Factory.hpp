@@ -110,7 +110,7 @@ class Factory {
                                 ++i;
 			}
 		}
-		Player* p;
+		Player* p = nullptr;
 		if(position == "PG"){
 			p = new Pg(rank, name, RPG, PPG, APG, SPG, BPG, FG, FGA, threePA, threeP);
 		}
