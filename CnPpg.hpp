@@ -6,8 +6,8 @@
 class CnPpg : public PpgBase{
         public:
                 CnPpg() : PpgBase() {};
-                double rate(Player* player){
-                        return 20 * player.GetPoints() / 20;
+                double rate(Player* x){
+                        return 20 * x->GetPoints() / 20;
                 }
 };
 
