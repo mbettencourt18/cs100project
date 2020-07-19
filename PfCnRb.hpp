@@ -6,8 +6,8 @@
 class PfCnReb : public RbBase{
 	public:
 	SfReb() : RbBase () {};
-        double rate(Player* player){
-                return 30 * player.GetReb() / 12;
+        double rate(Player* x){
+                return 30 * x->GetReb() / 12;
         }
 
 
