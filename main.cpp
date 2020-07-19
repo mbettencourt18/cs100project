@@ -3,6 +3,7 @@
 #include <vector>
 using namespace std;
 
+ bool is_number(const std::string& );
 void selectionSort(vector<int>&, vector<int> &);
 void outputRoster( vector<int> &,  vector<int> &);
 void addPlayer(vector<int> &, vector<int> &);
@@ -11,12 +12,10 @@ void removePlayer(vector<int> &, vector<int> &);
 void menu(vector<int> &, vector<int> &);
 void  firstmenu(vector<int> &j, vector<int> &r);
 
-         void  outputAllPlayers( vector<int>& ,  vector<int>& );
+void  outputAllPlayers( vector<int>& ,  vector<int>& );
          
-         
-         
-         
-         void  firstmenu(vector<int> &j, vector<int> &r){
+  
+   void  firstmenu(vector<int> &j, vector<int> &r){
          int choice =0;
          
          cout << "Choose an option" << endl;
@@ -81,7 +80,9 @@ void selectionSort(vector<int>&j , vector<int>& r)
 int main() {
 
 
-    vector<int> j = {1,2,3,4,5,6,7,8,9,10};
+    vector<int> j;
+    for (int i=1 ;i <=25; i++)
+        j.push_back(i);
    vector<int> r;
    
   
@@ -95,15 +96,81 @@ int main() {
    return 0;
 }
          
-         
+void OutPutPlayers(vector<int>&j, vector<int>& r, int counter){
+        string x= "hi";
+            
+            
+        while (!(x=="q" || x=="Q")){
+        
+           
+            
+            if(counter > j.size())
+                counter = j.size();
+                
+            if(counter>15 && counter <20)
+                counter =20;
+            
+            for (unsigned int i=counter-5; i<counter; i++){
+                cout<<"Position "<< i+1<< ": "<< j.at(i)<<endl;
+            }
+            
+            cout << "Type N for Next Page, P for Previous Page"<< endl;
+                     
+            cout<< "Type Q to go back to menu"<<endl;
+            cin >> x;
+            
+            
+            if (x == "n" || x=="N"){
+                if ((counter>=j.size())){
+                        
+                        cout << endl<<"End of List. Try again." << endl << endl;
+                    
+                }
+                else {
+                        counter=5+counter;
+                        cout << counter << endl;
+                }
+            }
+                   
+                
+                else  if (x == "p" || x== "P"){
+                    if (counter <=5){
+                        cout << endl<<"Beginning of List. Try again."<< endl << endl;
+                    }
+                    else {
+                        counter= counter-5;
+                        
+                    }
+                }
+                else if (x=="q"|| x=="Q"){
+                    
+                }
+                else{
+                    cout << endl<< "Invalid input. Try again" << endl<< endl;
+                }
+                
+                
+        }
+
+        
+         cout << endl<< endl;
+         menu(j,r);
+    
+}
          
          void  outputAllPlayers( vector<int>& j,  vector<int>& r){
              cout << endl<< endl;
-         for(unsigned i = 0; i<j.size();++i){
+             int counter =5;
+             
+             OutPutPlayers(j,r,counter);
+        
+      /*   for(unsigned i = 0; i<j.size();++i){
             cout<<"Position "<< i+1<< ": "<< j.at(i)<<endl;
            }
-             cout << endl<< endl;
-             menu(j,r);
+             */
+             
+        
+             
          }
 
 void outputRoster( vector<int>& j,  vector<int>& r){
@@ -116,41 +183,7 @@ void outputRoster( vector<int>& j,  vector<int>& r){
    menu(j,r);
 
 }
-void addPlayer(vector<int>& j, vector<int>& r){
-    
-    
-    if (r.size()>=5){
-        cout << "max players"<< endl;
-        menu(j,r);
-    }
-    
-    
-    else{
 
-            cout << endl<< endl;
-        for(unsigned i = 0; i<j.size();++i){
-           cout<<"Position "<< i+1<< ": "<< j.at(i)<<endl;
-          }
-            cout << endl<< endl;
-        
-   cout<< "Enter Player Poisition number"<<endl;
-   int x;
-   cin>>x;
-        if(x<j.size()){
-    for (int i=0; i <j.size(); i++){
-        if(i+1==x){
-            r.push_back(j.at(i));
-            j.erase(j.begin()+i);
-        }
-    }
-   selectionSort(j,r);
-}
-        else {
-            cout << endl << "Invalid Input Try Again" << endl;
-            addPlayer(j,r);
-        }
-            }
-}
 void menu(vector<int>& j, vector<int>& r){
  cout<<"MENU"<<endl;
  
@@ -219,3 +252,100 @@ for(unsigned i =0;i<r.size();++i){
            }
 }
 
+
+void addPlayer(vector<int>& j, vector<int>& r){
+    
+    
+    if (r.size()>=5){
+        cout << "max players"<< endl;
+        menu(j,r);
+    }
+    
+    
+    else{
+
+            cout << endl<< endl;
+            int counter =5;
+            string x= "hi";
+                
+                
+            while (!is_number(x)){
+        
+                
+                if(counter > j.size())
+                    counter = j.size();
+                    
+                if(counter>15 && counter <20)
+                    counter =20;
+                
+                for (unsigned int i=counter-5; i<counter; i++){
+                    cout<<"Position "<< i+1<< ": "<< j.at(i)<<endl;
+                }
+                
+                cout << "Type N for Next Page, P for Previous Page"<< endl;
+                         
+                cout<< "Enter Player Poisition number"<<endl;
+                cin >> x;
+                
+                
+                if (x == "n" || x=="N"){
+                    if ((counter>=j.size())){
+                    
+                        cout << endl<<"End of List. Try again." << endl << endl;
+                
+            }
+            else {
+                    counter=5+counter;
+                    cout << counter << endl;
+            }
+        }
+               
+            
+            else  if (x == "p" || x== "P"){
+                if (counter <=5){
+                    cout << endl<<"Beginning of List. Try again."<< endl << endl;
+                }
+                else {
+                    counter= counter-5;
+                    
+                }
+            }
+            else if (is_number(x)){
+                int u = stoi(x);
+                if (counter<u || ((counter-5)>=u)){
+                    cout << endl<< "Invalid input. Try again" << endl<< endl;
+                    x = "hi";
+                    
+                }
+            }
+            else{
+                cout << endl<< "Invalid input. Try again" << endl<< endl;
+            }
+                    
+    }
+
+        int b = stoi(x);
+        
+        if(b<j.size()){
+    for (int i=0; i <j.size(); i++){
+        if(i+1==b){
+            r.push_back(j.at(i));
+            j.erase(j.begin()+i);
+        }
+    }
+   selectionSort(j,r);
+}
+        else {
+            cout << endl << "Invalid Input. Try Again" << endl;
+            addPlayer(j,r);
+        }
+            }
+}
+
+
+bool is_number(const std::string& s)
+{
+    std::string::const_iterator it = s.begin();
+    while (it != s.end() && std::isdigit(*it)) ++it;
+    return !s.empty() && it == s.end();
+}
