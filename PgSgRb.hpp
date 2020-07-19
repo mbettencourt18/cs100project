@@ -6,8 +6,8 @@
 class PgSgReb : public RbBase{
 	public:
 	PgSgReb() : RbBase () {};
-	double rate(Player* player){
-		return 5 * player.GetReb() / 8;
+	double rate(Player* x){
+		return 5 * x->GetReb() / 8;
 	}
 };
 
