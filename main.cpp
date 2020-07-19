@@ -55,7 +55,7 @@ void selectionSort(vector<int>&j , vector<int>& r)
     
       for (int i = 0; i < r.size()-1; i++)
       {
-         ]
+         
           min_idx = i;
           for ( int b = i+1; b < r.size(); b++){
               if (r.at(b) < r.at(min_idx)){
