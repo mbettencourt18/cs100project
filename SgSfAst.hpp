@@ -6,8 +6,8 @@
 class SgSfAst : public AstBase{
 	public:
 	SgSfAst() : AstBase () {};
-        double rate(Player* player){
-                return 20 * player.GetAssists() / 10.6;
+        double rate(Player* x){
+                return 20 * x->GetAssists() / 10.6;
         }
 
 };
