@@ -45,11 +45,19 @@ class PgSgRb;
 class SfRb;
 class PfCnRb;
 */
+using namespace std;
+
 class Player {
 	public: 
 	string name;
 	double rebounds;
 	double points, assists, steals, blocks, FGPercent, FGA, threePA, threeP, rank;
+	AstBase* Assist;
+        DefBase* Defense;
+        FgPcntBase* FGPcnt;
+        PpgBase* Points;
+        RbBase* Rebounds;
+
         /* Constructors */
         //public:
 	/* Constructors */
@@ -58,22 +66,16 @@ class Player {
         double rating(Player* ){
 		return Assists->rate(this) + Defense->rate(this) + FgPcnt->rate(this) + Points->rate(this) + Rebounds->rate(this);
 	}
-	AstBase* Assist;
-        DefBase* Defense;
-        FgPcntBase* FGPcnt;
-        PpgBase* Points;
-        RbBase* Rebounds;
-
-        string GetName(){return name;}
-	double  GetAssists(){return assits;}
-	double GetReb(){return rebounds;}
-	double GetPoints(){return points;}
-	double GetSteals(){return steals;}
-	double GetBlocks(){return blocks;}
-	double GetFGPercent(){return FGPercent;}
-	double GetFGA(){return FGA;}
-	double GetThreePA {return threePA;}
-	double getThreeP{return threeP;}
+        string GetName(){return name;};
+	double  GetAssists(){return assits;};
+	double GetReb(){return rebounds;};
+	double GetPoints(){return points;};
+	double GetSteals(){return steals;};
+	double GetBlocks(){return blocks;};
+	double GetFGPercent(){return FGPercent;};
+	double GetFGA(){return FGA;};
+	double GetThreePA {return threePA;};
+	double getThreeP{return threeP;};
 	double print(){
 		cout << name << " Rating: " << rank << " Assists: " << assists; 
 /* finish print */
