@@ -6,8 +6,8 @@
 class SfPfPpg : public PpgBase{
         public:
                 SfPfPpg() : PpgBase() {};
-                double rate(Player* player){
-                        return 20 * player.GetPoints() / 26;
+                double rate(Player* x){
+                        return 20 * x->GetPoints() / 26;
                 }
 };
 
