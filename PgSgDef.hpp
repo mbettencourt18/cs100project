@@ -6,8 +6,8 @@
 class PgSgDef : public DefBase{
 	public:
 	PgSgDef() : DefBase() {};
-	double rate(Player* player){
-		return 20 * ( player.GetAssists() * 3 + player.GetAssists()) / 6;
+	double rate(Player* x){
+		return 20 * ( x->GetAssists() * 3 + x->GetAssists()) / 6;
 	}
 
 };
