@@ -92,16 +92,35 @@ void selectionSort(vector<int>&j , vector<int>& r)
 
 int main() {
 
-    Factory fact = new Factory();
+     Factory fact;
     
     fact.ReadPlayers(Point, Shoot, Small, Power, Center);
  
  
- for (int i=0; i<Shoot.size(); i++){
-   Shoot.at(i)->display();
+ for (int i=0; i<Point.size(); i++){
+   Point.at(i)->Display();
+
  }
-    
-    cout << Shoot.at(0)->GetReb();
+  
+cout << endl<< endl<<"Small forwards"<< endl;
+
+for (int i=0; i<Small.size(); i++){
+   Small.at(i)->Display();
+
+ }  
+cout << endl<< endl<<"Power Forwards"<< endl;
+
+for (int i=0; i<Power.size(); i++){
+   Power.at(i)->Display();
+
+ }
+cout << endl<< endl<<"Center"<< endl;
+
+for (int i=0; i<Center.size(); i++){
+   Center.at(i)->Display();
+
+ }
+
     
 
     vector<int> j;
