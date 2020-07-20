@@ -28,6 +28,7 @@ class Pf;
 class Cn;
 class Factory {
 	public:
+	Factory(){};
 		//void Parser(vector<string>, vector<Player*>);
 	void Parser(vector<string> player, vector<Player*> playerList){
 		string name = " ";
