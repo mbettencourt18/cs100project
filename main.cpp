@@ -95,6 +95,11 @@ int main() {
     Factory fact = new Factory();
     
     fact.ReadPlayers(Point, Shoot, Small, Power, Center);
+ 
+ 
+ for (int i=0; i<Shoot.size(); i++){
+   Shoot.at(i)->display();
+ }
     
     cout << Shoot.at(0)->GetReb();
     
