@@ -77,7 +77,7 @@ class Player: public Base {
 	double GetFGA(){return FGA;};
 	double GetThreePA() {return threePA;};
 	double getThreeP(){return threeP;};
-	double Display(){
+	void Display(){
 		rating();
 		cout << name << " Rating: " << rank << "Points: " << points << " Assists: " << assists << endl;
 /* finish print */
