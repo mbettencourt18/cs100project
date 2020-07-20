@@ -78,7 +78,8 @@ class Player: public Base {
 	double GetThreePA() {return threePA;};
 	double getThreeP(){return threeP;};
 	double Display(){
-		cout << name << " Rating: " << rank << "Points: " << points << " Assists: " << assists << "
+		rating();
+		cout << name << " Rating: " << rank << "Points: " << points << " Assists: " << assists << endl;
 /* finish print */
 	} 
 	
