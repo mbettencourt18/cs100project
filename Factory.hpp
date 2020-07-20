@@ -30,7 +30,7 @@ class Factory {
 	public:
 	Factory(){};
 		//void Parser(vector<string>, vector<Player*>);
-	void Parser(vector<string> player, vector<Player*> playerList){
+	void Parser(vector<string>& player, vector<Player*>& playerList){
 		string name = " ";
     		int rank = 0;
     		string position = " ";
@@ -130,7 +130,7 @@ class Factory {
 		playerList.push_back(p);	
 	}
 
-	void ReadPlayers(vector<Player*> pg, vector<Player*> sg, vector<Player*> sf, vector<Player*> pf, vector<Player*> cn){
+	void ReadPlayers(vector<Player*>& pg, vector<Player*>& sg, vector<Player*>& sf, vector<Player*>& pf, vector<Player*>& cn){
 		//Change file name
 		ifstream file("All_Positions_Stats.txt");
     		string input;
@@ -153,15 +153,20 @@ class Factory {
         			//cout << tmp << endl;
     			}while (ss);
 			if(player.at(3) == "PG"){
+				//cout << "Parser pg" << endl;
 				Parser(player, pg);
 			}else if(player.at(3) == "SG"){
+				//cout << "Parser sg" << endl;
 				Parser(player, sg);
 			}else if(player.at(3) == "SF"){
 				Parser(player, sf);
+				//cout << "Parser sf" << endl;
 			}else if(player.at(3) == "PF"){
 				Parser(player, pf);
+				//cout << "Parser pf" << endl;
 			}else if(player.at(3) == "CN"){
 				Parser(player, cn);
+				//cout << "Parser Cn" << endl;
 			}else{
 				cout << "Error loading player: " << player.at(2);
 			}
