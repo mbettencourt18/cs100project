@@ -56,7 +56,7 @@ class Factory {
                                 ++i;
 				string last = " ";
 				istringstream isss(player.at(i));
-                                isss >> rank;
+                                isss >> last;
                                 ++i;
 				name = name + " " + last;
 			}

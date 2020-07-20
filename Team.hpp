@@ -14,7 +14,7 @@ class Team:public Base {
         double rating(){
 		double rating;
 		for(int i = 0; i < 5; ++i){
-			rating += list[i].rate();
+			rating += list[i].GetRank();
 		}
 		return rating / 5;
 	}
@@ -22,14 +22,14 @@ class Team:public Base {
   	Player* list[5];
 	void Display(){
 		for(int i = 0; i < 5; ++i){
-			list[i].print();
+			list[i].Display();
 		}
 	}
 	void AddPlayer(Player* player, int pos){
-		list[pos] = player;
+		list[pos-1] = player;
 	}
 	void RemovePlayer(int pos){
-		list[pos] = nullptr;
+		list[pos-1] = nullptr;
 	}
 };
 
