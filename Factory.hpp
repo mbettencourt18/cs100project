@@ -107,7 +107,7 @@ class Factory {
 			}
 			if(PPG == 0) {
 				istringstream iss(player.at(i));
-                                iss >> rank;
+                                iss >> PPG;
                                 ++i;
 			}
 		}
