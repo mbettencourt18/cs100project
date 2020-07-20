@@ -32,6 +32,7 @@ class Factory {
 		//void Parser(vector<string>, vector<Player*>);
 	void Parser(vector<string>& player, vector<Player*>& playerList){
 		string name = " ";
+		string last = " ";
     		int rank = 0;
     		string position = " ";
     		double FGA = 0.0;
@@ -44,7 +45,7 @@ class Factory {
     		double BPG = 0.0;
     		double PPG = 0.0;
 		int i = 0;
-		while(i < player.size()){
+		//while(i < player.size()) {
 			if(rank == 0){
 				istringstream iss(player.at(i));
 				iss >> rank;
@@ -54,7 +55,7 @@ class Factory {
 				istringstream iss(player.at(i));
                                 iss >> name;
                                 ++i;
-				string last = " ";
+			//	string last = " ";
 				istringstream isss(player.at(i));
                                 isss >> last;
                                 ++i;
@@ -110,7 +111,7 @@ class Factory {
                                 iss >> PPG;
                                 ++i;
 			}
-		}
+		//}
 		Player* p = nullptr;
 		if(position == "PG"){
 			p = new Pg(rank, name, RPG, PPG, APG, SPG, BPG, FG, FGA, threePA, threeP);
