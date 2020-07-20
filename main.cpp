@@ -1,7 +1,18 @@
-#include <iostream>
 
+#include <iostream>
+#include "Factory.hpp"
 #include <vector>
+
+
+
 using namespace std;
+
+
+static vector<Player*> Point;
+static vector<Player*> Shoot;
+static vector<Player*> Small;
+static vector<Player*> Power;
+static vector<Player*> Center;
 
  bool is_number(const std::string& );
 void selectionSort(vector<int>&, vector<int> &);
@@ -12,10 +23,12 @@ void removePlayer(vector<int> &, vector<int> &);
 void menu(vector<int> &, vector<int> &);
 void  firstmenu(vector<int> &j, vector<int> &r);
 
-void  outputAllPlayers( vector<int>& ,  vector<int>& );
+         void  outputAllPlayers( vector<int>& ,  vector<int>& );
          
-  
-   void  firstmenu(vector<int> &j, vector<int> &r){
+         
+         
+         
+         void  firstmenu(vector<int> &j, vector<int> &r){
          int choice =0;
          
          cout << "Choose an option" << endl;
@@ -41,7 +54,7 @@ void selectionSort(vector<int>&j , vector<int>& r)
        
         min_idx = i;
         for ( int b = i+1; b < j.size(); b++){
-            if (j.at(b) < j.at(min_idx)){
+            if (j.at(b) > j.at(min_idx)){
                 min_idx = b;
             }
         }
@@ -79,6 +92,12 @@ void selectionSort(vector<int>&j , vector<int>& r)
 
 int main() {
 
+    Factory fact = new Factory();
+    
+    fact.ReadPlayers(Point, Shoot, Small, Power, Center);
+    
+    cout << Shoot.at(0)->GetReb();
+    
 
     vector<int> j;
     for (int i=1 ;i <=25; i++)
