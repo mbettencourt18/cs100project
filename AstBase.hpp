@@ -9,7 +9,7 @@ using namespace std;
 class AstBase {
 	public:
 		AstBase(){};
-		virtual double rate(double );
+		virtual double rate(double )=0;
 };
 
 #endif

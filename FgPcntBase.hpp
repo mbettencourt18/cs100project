@@ -7,7 +7,7 @@
 class FgPcntBase {
 	public:
 	FgPcntBase() {};
-	virtual double rate(double );
+	virtual double rate(double )=0;
 };
 
 #endif

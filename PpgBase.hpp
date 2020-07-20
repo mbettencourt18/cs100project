@@ -9,7 +9,7 @@ using namespace std;
 class PpgBase {
 	public:
 	PpgBase() {};
-	virtual double rate(double );
+	virtual double rate(double )=0;
 };
 
 #endif

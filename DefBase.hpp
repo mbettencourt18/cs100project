@@ -8,7 +8,7 @@ using namespace std;
 class DefBase {
 	public:
 	DefBase() {};
-	virtual double rate(double, double );
+	virtual double rate(double, double )=0;
 };
 
 #endif
