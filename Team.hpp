@@ -6,7 +6,7 @@
 #include "Base.hpp"
 #include "Player.hpp"
 
-class Team {
+class Team:public Base {
     public:
         /* Constructors */
         Team() { };
@@ -20,7 +20,7 @@ class Team {
 	}
         string TeamName;
   	Player* list[5];
-	void displayTeam(){
+	void Display(){
 		for(int i = 0; i < 5; ++i){
 			list[i].print();
 		}

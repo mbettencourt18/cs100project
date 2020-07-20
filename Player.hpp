@@ -1,6 +1,6 @@
 #ifndef __PLAYER_HPP__
 #define __PLAYER_HPP__
-
+#include "Base.hpp"
 #include <string>
 #include <iostream>
 #include "AstBase.hpp"
@@ -47,7 +47,7 @@ class PfCnRb;
 
 using namespace std;
 
-class Player {
+class Player: public Base {
 	public: 
 	string name;
 	double rebounds;
@@ -77,8 +77,8 @@ class Player {
 	double GetFGA(){return FGA;};
 	double GetThreePA() {return threePA;};
 	double getThreeP(){return threeP;};
-	double print(){
-		cout << name << " Rating: " << rank << " Assists: " << assists; 
+	double Display(){
+		cout << name << " Rating: " << rank << "Points: " << points << " Assists: " << assists << "
 /* finish print */
 	} 
 	
