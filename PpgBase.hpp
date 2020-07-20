@@ -2,13 +2,14 @@
 #define __PPGBASE_HPP__
 #include "Player.hpp"
 
-class Player;
+//class Player;
 
 
 using namespace std;
 class PpgBase {
+	public:
 	PpgBase() {};
-	virtual double rate(Player* );
+	virtual double rate(double );
 };
 
 #endif

@@ -3,7 +3,7 @@
 
 #include <string>
 #include <iostream>
-/*#include "AstBase.hpp"
+#include "AstBase.hpp"
 #include "DefBase.hpp"
 #include "FgPcntBase.hpp"
 #include "PpgBase.hpp"
@@ -44,7 +44,7 @@ class CnPpg;
 class PgSgRb;
 class SfRb;
 class PfCnRb;
-*/
+
 using namespace std;
 
 class Player {
@@ -63,19 +63,20 @@ class Player {
 	/* Constructors */
         Player() { };
         /* Pure Virtual Functions */
-        double rating(Player* ){
-		return Assists->rate(this) + Defense->rate(this) + FgPcnt->rate(this) + Points->rate(this) + Rebounds->rate(this);
+        double rating(){
+		rank = this->Assist->rate(this->GetAssists()) + this->Defense->rate(this->GetSteals(), this->GetBlocks()) + this->FGPcnt->rate(this->GetFGPercent()) + this->Points->rate(this->GetPoints()) + this->Rebounds->rate(this->GetReb());
+		return rank;
 	}
         string GetName(){return name;};
-	double  GetAssists(){return assits;};
+	double  GetAssists(){return assists;};
 	double GetReb(){return rebounds;};
 	double GetPoints(){return points;};
 	double GetSteals(){return steals;};
 	double GetBlocks(){return blocks;};
 	double GetFGPercent(){return FGPercent;};
 	double GetFGA(){return FGA;};
-	double GetThreePA {return threePA;};
-	double getThreeP{return threeP;};
+	double GetThreePA() {return threePA;};
+	double getThreeP(){return threeP;};
 	double print(){
 		cout << name << " Rating: " << rank << " Assists: " << assists; 
 /* finish print */

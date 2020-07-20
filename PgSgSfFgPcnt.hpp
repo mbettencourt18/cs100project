@@ -6,8 +6,8 @@
 class PgSgSfFgPcnt : public FgPcntBase{
 	public:
 		PgSgSfFgPcnt() : FgPcntBase() {};
-		double rate (Player* x){
-			return 20 * x->GetFGPercent() / 48;
+		double rate (double x){
+			return 20 * x / 48;
 		}
 
 };

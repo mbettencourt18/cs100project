@@ -1,16 +1,16 @@
 #ifndef __RBBASE_HPP__
 #define __RBBASE_HPP__
-#include "Player.hpp"
+//#include "Player.hpp"
 
-class Player;
+//class Player;
 
 using namespace std;
 
 class RbBase {
         public:
                 RbBase(){};
-                virtual double rate(Player* );
-}
+                virtual double rate(double );
+};
 
 #endif
 

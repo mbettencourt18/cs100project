@@ -6,8 +6,8 @@
 class PgPpg : public PpgBase{
 	public:
 		PgPpg() : PpgBase() {};
-		double rate(Player* x){
-			return 25 * x->GetPoints() / 27;
+		double rate(double x){
+			return 25 * x / 27;
 		}
 };
 

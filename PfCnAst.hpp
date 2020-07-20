@@ -6,8 +6,8 @@
 class PfCnAst : public AstBase{
 	public:
         PfCnAst() : AstBase () {};
-        double rate(Player* x){
-                return 10 * x->GetAssists() / 7;
+        double rate(double x){
+                return 10 * x / 7;
         }
 
 };

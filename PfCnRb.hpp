@@ -3,11 +3,11 @@
 
 #include "RbBase.hpp"
 
-class PfCnReb : public RbBase{
+class PfCnRb : public RbBase{
 	public:
-	SfReb() : RbBase () {};
-        double rate(Player* x){
-                return 30 * x->GetReb() / 12;
+	PfCnRb() : RbBase () {};
+        double rate(double x){
+                return 30 * x / 12;
         }
 
 

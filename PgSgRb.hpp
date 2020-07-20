@@ -3,11 +3,11 @@
 
 #include "RbBase.hpp"
 
-class PgSgReb : public RbBase{
+class PgSgRb : public RbBase{
 	public:
-	PgSgReb() : RbBase () {};
-	double rate(Player* x){
-		return 5 * x->GetReb() / 8;
+	PgSgRb() : RbBase () {};
+	double rate(double x){
+		return 5 * x / 8;
 	}
 };
 

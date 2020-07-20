@@ -3,10 +3,11 @@
 
 #include "RbBase.hpp"
 
-class SfReb : public RbBase{
-	SfReb() : RbBase () {};
-        double rate(Player* x){
-                return 20 * x->GetReb() / 8;
+class SfRb : public RbBase{
+	public:
+	SfRb() : RbBase () {};
+        double rate(double x){
+                return 20 * x / 8;
         }
 
 

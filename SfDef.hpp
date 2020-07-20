@@ -6,8 +6,8 @@
 class SfDef : public DefBase{
 	public:
         SfDef() : DefBase() {};
-        double rate(Player* x){
-                return 20 * ( x->GetSteals() + x->GetBlocks()) / 2.5;
+        double rate(double x, double y){
+                return 20 * ( x + y) / 2.5;
 	}
 };
 
