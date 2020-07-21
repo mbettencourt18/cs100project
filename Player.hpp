@@ -67,6 +67,7 @@ class Player: public Base {
 		rank = this->Assist->rate(this->GetAssists()) + this->Defense->rate(this->GetSteals(), this->GetBlocks()) + this->FGPcnt->rate(this->GetFGPercent()) + this->Points->rate(this->GetPoints()) + this->Rebounds->rate(this->GetReb());
 		return rank;
 	}
+	virtual string GetPosition()=0;
         string GetName(){return name;};
 	double  GetAssists(){return assists;};
 	double GetReb(){return rebounds;};
@@ -79,8 +80,7 @@ class Player: public Base {
 	double getThreeP(){return threeP;};
 	void Display(){
 		rating();
-		cout << name << " Rating: " << rank << "Points: " << points << " Assists: " << assists << " Rebounds: " << rebounds << " Steals: " << steals << " Blocks: " << blocks << "FG Percent: " << FGPercent << " FGA: " << FGA << " threePA: " << threePA << " Three Pointers: " << threeP << endl;
-/* finish print */
+		cout << GetPosition() << " " << name << " Rating: " << rank ;
 	} 
 	
 };

@@ -19,7 +19,7 @@ class Team:public Base {
 		return rating / 5;
 	}
         string TeamName;
-  	Player* list[5];
+  	vector<Player*> roster;
 	void Display(){
 		for(int i = 0; i < 5; ++i){
 			list[i].Display();
