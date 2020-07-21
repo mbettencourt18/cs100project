@@ -7,7 +7,7 @@ class CnPpg : public PpgBase{
         public:
                 CnPpg() : PpgBase() {};
                 double rate(double x){
-                        return 20 * x / 20;
+                        return 20 * x / 18;
                 }
 };
 

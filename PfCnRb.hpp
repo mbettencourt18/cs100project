@@ -7,7 +7,7 @@ class PfCnRb : public RbBase{
 	public:
 	PfCnRb() : RbBase () {};
         double rate(double x){
-                return 30 * x / 12;
+                return 30 * x / 14;
         }
 
 
