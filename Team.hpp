@@ -48,6 +48,9 @@ class Team:public Base {
 			}
 		}
 	}			
+	int TeamSize(){
+		return list.size();
+	}
 };
 
 #endif
