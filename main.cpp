@@ -1,5 +1,5 @@
 
-
+#include "Team.hpp"
 #include <iostream>
 #include "Factory.hpp"
 #include <vector>
@@ -18,20 +18,20 @@ static vector<Player*> Center;
 void sort( );
 
  bool is_number(const std::string& );
-void selectionSort(vector<Player*>&, vector<Player*> &, string);
-void outputRoster( vector<Player*> &,  vector<Player*> &);
-void addPlayer(vector<Player*> &, vector<Player*> &,string);
-void removePlayer(vector<Player*> &, vector<Player*> &, string);
+void selectionSort(vector<Player*>&, vector<Team*> &, string);
+void outputRoster( vector<Player*> &,  vector<Team*> &);
+void addPlayer(vector<Player*> &, vector<Team*> &,string);
+void removePlayer(vector<Player*> &, vector<Team*> &, string);
 
-void menu(vector<Player*> &, vector<Player*> &);
-void  firstmenu(vector<Player*> &j, vector<Player*> &r);
+void menu(vector<Player*> &, vector<Team*> &);
+void  firstmenu(vector<Player*> &j, vector<Team*> &r);
 
-         void  outputAllPlayers( vector<Player*>& ,  vector<Player*>& );
+         void  outputAllPlayers( vector<Player*>& ,  vector<Team*>& );
          
          
          
          
-         void  firstmenu(vector<Player*> &j, vector<Player*> &r){
+         void  firstmenu(vector<Player*> &j, vector<Team*> &r){
          int choice =0;
          
          cout << "Choose an option" << endl;
@@ -46,7 +46,7 @@ void  firstmenu(vector<Player*> &j, vector<Player*> &r);
          }
          
   
-void selectionSort(vector<Player*>&j , vector<Player*>& r, string pos)
+void selectionSort(vector<Player*>&j , vector<Team*>& r, string pos)
 {
     
     int min_idx;
@@ -68,19 +68,19 @@ void selectionSort(vector<Player*>&j , vector<Player*>& r, string pos)
          
     }
     
-      for (int i = 0; i < r.size()-1; i++)
+      for (int i = 0; i < r.at(0)->list.size()-1; i++)
       {
          
           min_idx = i;
           for ( int b = i+1; b < r.size(); b++){
-              if (r.at(b) > r.at(min_idx)){
+              if (r.at(0)->list.at(b) > r.at(0)->list.at(min_idx)){
                   min_idx = b;
               }
           }
 
-                   Player* u= r.at(i);
-                  r.at(i) = r.at(min_idx);
-                  r.at(min_idx)= u;
+                   Team* u= r.at(0)->list.at(i);
+                  r.at(0)->list.at(i)= r.at(0)->list(min_idx);
+                  r.at(0)->list.at(min_idx)= u;
            
       }
 if(pos == "shoot")
@@ -153,7 +153,7 @@ for (int i=0; i<Center.size(); i++){
    vector<int> r;
    
   */
-vector<Player*> r;
+vector<Team*> r;
 /*
 selectionSort(pg, r,"pg");
 selectionSort(sg, r,"shoot");
@@ -170,7 +170,7 @@ selectionSort(cn, r,"cn");
    return 0;
 }
          
-void OutPutPlayers(vector<Player*>&j, vector<Player*>& r, int counter){
+void OutPutPlayers(vector<Player*>&j, vector<Team*>& r, int counter){
         string x= "hi";
  	int beg=0;           
             
@@ -185,7 +185,7 @@ void OutPutPlayers(vector<Player*>&j, vector<Player*>& r, int counter){
                 counter =20;
             
             for (unsigned int i=beg; i<counter; i++){
-	cout<<"Position "<< i+1<< ": "<< j.at(i)->GetName()<<", Rating: "<< j.at(i)->rating()<<endl;
+	cout<<"Position "<< i+1<< ": "<< j.at(0)->list[i]->GetName()<<", Rating: "<< j.at(0)->list[i]->rating()<<endl;
             }
             
             cout << "Type N for Next Page, P for Previous Page"<< endl;
@@ -233,7 +233,7 @@ beg+=5;
     
 }
          
-         void  outputAllPlayers( vector<Player*>& j,  vector<Player*>& r){
+         void  outputAllPlayers( vector<Player*>& j,  vector<Team*>& r){
              cout << endl<< endl;
              int counter =5;
              
@@ -248,18 +248,18 @@ beg+=5;
              
          }
 
-void outputRoster( vector<Player*>& j,  vector<Player*>& r){
+void outputRoster( vector<Player*>& j,  vector<Team*>& r){
     cout << endl << endl;
    cout<<"ROSTER"<<endl;
    for(unsigned i = 0; i<r.size();++i){
-    cout<<"Position "<< i+1<<" -- "<<r.at(i)->GetName()<<", Rating: "<< r.at(i)->rating()<<endl;
+    cout<<"Position "<< i+1<<" -- "<<r.at(0)->list[i]->GetName()<<", Rating: "<< r.at(0)->list[i]->rating()<<endl;
    }
    cout<<endl;
    menu(j,r);
 
 }
 
-void menu(vector<Player*>& j, vector<Player*>& r){
+void menu(vector<Player*>& j, vector<Team*>& r){
  
  vector<Player*>pg =  Point;
  vector<Player*>sg = Shoot;
@@ -349,11 +349,11 @@ else if(choice == 'q'){
 
 }
 
-void removePlayer(vector<Player*>&j, vector<Player*>& r, string pos){
+void removePlayer(vector<Player*>&j, vector<Team*>& r, string pos){
      cout << endl << endl;
     cout<<"ROSTER"<<endl;
     for(unsigned int i = 0; i<r.size();++i){
-     cout<<"Position "<< i+1<<" -- "<<r.at(i)->GetName()<<", Rating: "<< r.at(i)->rating()<<endl;
+     cout<<"Position "<< i+1<<" -- "<<r.at(0)->list.at(i)->GetName()<<", Rating: "<< r.at(i)->list.at(i)->rating()<<endl;
     }
 cout << endl<< endl;
          
@@ -380,7 +380,7 @@ for(unsigned i =0;i<r.size();++i){
 }
 
 
-void addPlayer(vector<Player*>& j, vector<Player*>& r, string pos){
+void addPlayer(vector<Player*>& j, vector<Team*>& r, string pos){
     
 cout << j.at(0)->GetName()<< endl;   
     if (r.size()>=5){
@@ -406,7 +406,7 @@ cout << j.at(0)->GetName()<< endl;
                 
                 for (int i=beg; i<counter; i++){
 		
-                    cout<<"Position "<< i+1<< ": "<< j.at(i)->GetName()<<", Rating: "<< j.at(i)->rating()<<endl;
+                    cout<<"Position "<< i+1<< ": "<< j.at(0)->list.at(i)->GetName()<<", Rating: "<< j.at(0)->list[i]->rating()<<endl;
                 }
 
                 
@@ -458,7 +458,7 @@ cout << j.at(0)->GetName()<< endl;
         if(b<j.size()){
     for (int i=0; i <j.size(); i++){
         if(i+1==b){
-            r.push_back(j.at(i));
+            r.at(0)->list.push_back(j.at(i));
             j.erase(j.begin()+i);
         }
     }
