@@ -80,7 +80,7 @@ class Player: public Base {
 	double getThreeP(){return threeP;};
 	void Display(){
 		rating();
-		cout << GetPosition() << " " << name << " Rating: " << rank ;
+		cout << GetPosition() << " " << name << " Rating: " << rank << endl;
 	} 
 	
 };

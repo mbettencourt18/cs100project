@@ -5,7 +5,7 @@
 
 #include "Base.hpp"
 #include "Player.hpp"
-
+using namespace std;
 class Team:public Base {
     public:
         /* Constructors */
@@ -13,6 +13,9 @@ class Team:public Base {
 	vector<Player*> list;
         Team() { };
 	Team(string Name): TeamName(Name){};
+	string GetName(){
+		return TeamName;
+	}
         double rating(){
 		double rating;
 		for(int i = 0; i < 5; ++i){
@@ -21,7 +24,8 @@ class Team:public Base {
 		return rating / 5;
 	}
 	void Display(){
-		for(int i = 0; i < 5; ++i){
+		for(int i = 0; i < list.size(); ++i){
+			cout << i+1 << ". " ;
 			list.at(i)->Display();
 		}
 	}
@@ -33,6 +37,17 @@ class Team:public Base {
 		list.erase(index-1);
 		return temp;
 	}
+	void Sort(){
+		for(int i = 0; i < list.size(); ++i){
+			for(int j = i+1; j < i; ++j){
+				if(list.at(j)->GetRank() > list.at(i)->GetRank()){
+					Player* temp = list.at(j);
+					list.at(j) = list.at(i);
+					list.at(i) = temp;
+				}
+			}
+		}
+	}			
 };
 
 #endif

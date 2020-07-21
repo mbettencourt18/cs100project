@@ -29,6 +29,10 @@ class Sf : public Player{
 	string GetPosition(){
 		return "Sf";
 	}
+	double rating(){
+		rank = this->Assist->rate(this->GetAssists()) + this->Defense->rate(this->GetSteals(), this->GetBlocks()) + this->FGPcnt->rate(this->GetFGPercent()) + this->Points->rate(this->GetPoints()) + this->Rebounds->rate(this->GetReb())/68;
+		return rank;
+	}
 };
 
 #endif

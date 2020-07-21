@@ -30,6 +30,10 @@ class Cn : public Player{
 string GetPosition(){
 	return "Cn";
 }
+double rating(){
+		rank = this->Assist->rate(this->GetAssists()) + this->Defense->rate(this->GetSteals(), this->GetBlocks()) + this->FGPcnt->rate(this->GetFGPercent()) + this->Points->rate(this->GetPoints()) + this->Rebounds->rate(this->GetReb())/84;
+		return rank;
+}
 };
 
 #endif

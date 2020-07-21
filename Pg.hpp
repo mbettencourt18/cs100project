@@ -29,6 +29,10 @@ class Pg : public Player{
 	Rebounds = new PgSgRb();
 	FGPcnt = new PgSgSfFgPcnt();			
 }
+	double rating(){
+		rank = this->Assist->rate(this->GetAssists()) + this->Defense->rate(this->GetSteals(), this->GetBlocks()) + this->FGPcnt->rate(this->GetFGPercent()) + this->Points->rate(this->GetPoints()) + this->Rebounds->rate(this->GetReb())/80;
+		return rank;
+	}
 	string GetPosition(){
 		return "Pg";
 	}
