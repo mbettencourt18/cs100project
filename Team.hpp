@@ -9,6 +9,8 @@
 class Team:public Base {
     public:
         /* Constructors */
+	string TeamName;
+	vector<Player*> list;
         Team() { };
 	Team(string Name): TeamName(Name){};
         double rating(){
@@ -18,8 +20,6 @@ class Team:public Base {
 		}
 		return rating / 5;
 	}
-        string TeamName;
-  	vector<Player*> list;
 	void Display(){
 		for(int i = 0; i < 5; ++i){
 			list.at(i)->Display();
