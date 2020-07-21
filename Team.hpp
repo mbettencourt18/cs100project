@@ -25,11 +25,13 @@ class Team:public Base {
 			list.at(i)->Display();
 		}
 	}
-	void AddPlayer(Player* player, int pos){
-		list[pos-1] = player;
+	void AddPlayer(Player* player){
+		list.push_back(player);
 	}
-	void RemovePlayer(int pos){
-		list[pos-1] = nullptr;
+	Player* RemovePlayer(int index){
+		Player* temp = list.at(index-1);
+		list.erase(index-1);
+		return temp;
 	}
 };
 
