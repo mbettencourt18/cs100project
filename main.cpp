@@ -254,7 +254,7 @@ beg+=5;
 void outputRoster( vector<Player*>& j,  vector<Team*>& r){
     cout << endl << endl;
    cout<<"ROSTER"<<endl;
-Display(r.at(0));
+r.at(0)->Display();
    cout<<endl;
    menu(j,r);
 
@@ -358,7 +358,7 @@ void removePlayer(vector<Player*>&j, vector<Team*>& r, string pos){
     }
     */
 	
-	Display(r.at(0));
+r.at(0)->Display();
 cout << endl<< endl;
          
 
@@ -460,7 +460,7 @@ void addPlayer(vector<Player*>& j, vector<Team*>& r, string pos){
         if(b<j.size()){
     for (int i=0; i <j.size(); i++){
         if(i+1==b){
-            r.at(0)->list->AddPlayer(j.at(i));
+            r.at(0)->AddPlayer(j.at(i));
             j.erase(j.begin()+i);
         }
     }
