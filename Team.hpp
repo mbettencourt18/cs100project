@@ -2,6 +2,7 @@
 #define __TEAM_HPP__
 
 #include <string>
+#include <vector>
 
 #include "Base.hpp"
 #include "Player.hpp"
