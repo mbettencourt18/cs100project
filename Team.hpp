@@ -20,7 +20,7 @@ class Team:public Base {
         double rating(){
 		double rating;
 		for(int i = 0; i < 5; ++i){
-			rating += list[i].GetRank();
+			rating += list[i]->GetRank();
 		}
 		return rating / 5;
 	}
@@ -35,7 +35,7 @@ class Team:public Base {
 	}
 	Player* RemovePlayer(int index){
 		Player* temp = list.at(index-1);
-		list.erase(index-1);
+		list.erase(list.begin()+index-1);
 		return temp;
 	}
 	void Sort(){

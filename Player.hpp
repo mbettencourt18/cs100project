@@ -68,6 +68,9 @@ class Player: public Base {
 		return rank;
 	}
 	virtual string GetPosition()=0;
+	double GetRank(){
+		return rating();
+	}
         string GetName(){return name;};
 	double  GetAssists(){return assists;};
 	double GetReb(){return rebounds;};
