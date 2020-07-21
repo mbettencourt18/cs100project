@@ -67,7 +67,9 @@ void selectionSort(vector<Player*>&j , vector<Team*>& r, string pos)
         j.at(min_idx)= u;
          
     }
-    
+	
+	r.at(0)->Sort();
+    /*
       for (int i = 0; i < r.at(0)->list.size()-1; i++)
       {
          
@@ -83,6 +85,7 @@ void selectionSort(vector<Player*>&j , vector<Team*>& r, string pos)
                   r.at(0)->list.at(min_idx)= u;
            
       }
+      */
 if(pos == "shoot")
 Shoot=j;
 if(pos == "pg")
@@ -185,7 +188,7 @@ void OutPutPlayers(vector<Player*>&j, vector<Team*>& r, int counter){
                 counter =20;
             
             for (unsigned int i=beg; i<counter; i++){
-	cout<<"Position "<< i+1<< ": "<< j.at(0)->list[i]->GetName()<<", Rating: "<< j.at(0)->list[i]->rating()<<endl;
+	cout<<"Position "<< i+1<< ": "<< j.at(i)->GetName()<<", Rating: "<< j.at(i)->rating()<<endl;
             }
             
             cout << "Type N for Next Page, P for Previous Page"<< endl;
@@ -251,9 +254,7 @@ beg+=5;
 void outputRoster( vector<Player*>& j,  vector<Team*>& r){
     cout << endl << endl;
    cout<<"ROSTER"<<endl;
-   for(unsigned i = 0; i<r.size();++i){
-    cout<<"Position "<< i+1<<" -- "<<r.at(0)->list[i]->GetName()<<", Rating: "<< r.at(0)->list[i]->rating()<<endl;
-   }
+Display(r.at(0));
    cout<<endl;
    menu(j,r);
 
@@ -357,16 +358,14 @@ void removePlayer(vector<Player*>&j, vector<Team*>& r, string pos){
     }
 cout << endl<< endl;
          
-    
+Display(r.at(0));
     
 cout<<"Enter a position number to remove"<<endl;
 int x;
 cin>>x;
-    if (x<r.size()){
-for(unsigned i =0;i<r.size();++i){
-   if(i+1==x){
-      j.push_back(r.at(i));
-      r.erase(r.begin()+i);
+
+	
+      j.push_back(r.at(0)->RemovePlayer(x);
       break;
    }
 }
@@ -381,9 +380,8 @@ for(unsigned i =0;i<r.size();++i){
 
 
 void addPlayer(vector<Player*>& j, vector<Team*>& r, string pos){
-    
-cout << j.at(0)->GetName()<< endl;   
-    if (r.size()>=5){
+   
+    if (r.at(0)->TeamSize()>=5){
         cout << "max players"<< endl;
         menu(j,r);
     }
@@ -406,7 +404,7 @@ cout << j.at(0)->GetName()<< endl;
                 
                 for (int i=beg; i<counter; i++){
 		
-                    cout<<"Position "<< i+1<< ": "<< j.at(0)->list.at(i)->GetName()<<", Rating: "<< j.at(0)->list[i]->rating()<<endl;
+                    cout<<"Position "<< i+1<< ": "<< j.at(i)->GetName()<<", Rating: "<< j.at(i)->rating()<<endl;
                 }
 
                 
@@ -458,7 +456,7 @@ cout << j.at(0)->GetName()<< endl;
         if(b<j.size()){
     for (int i=0; i <j.size(); i++){
         if(i+1==b){
-            r.at(0)->list.push_back(j.at(i));
+            r.at(0)->list->AddPlayer(j.at(i));
             j.erase(j.begin()+i);
         }
     }
