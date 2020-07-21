@@ -353,25 +353,29 @@ else if(choice == 'q'){
 void removePlayer(vector<Player*>&j, vector<Team*>& r, string pos){
      cout << endl << endl;
     cout<<"ROSTER"<<endl;
-    for(unsigned int i = 0; i<r.size();++i){
+ /*   for(unsigned int i = 0; i<r.size();++i){
      cout<<"Position "<< i+1<<" -- "<<r.at(0)->list.at(i)->GetName()<<", Rating: "<< r.at(i)->list.at(i)->rating()<<endl;
     }
+    */
+	
+	Display(r.at(0));
 cout << endl<< endl;
          
-Display(r.at(0));
+
     
 cout<<"Enter a position number to remove"<<endl;
 int x;
 cin>>x;
 
+	if (x<=4){
+		
+      j.push_back(r.at(0)->RemovePlayer(x));
+      
 	
-      j.push_back(r.at(0)->RemovePlayer(x);
-      break;
-   }
-}
+
     
     selectionSort(j,r,pos);
-    }
+	}    
     else {
         cout << endl << "Invalid Input Try Again" << endl;
         removePlayer(j,r,pos);
