@@ -1,4 +1,5 @@
 
+
 #include <iostream>
 #include "Factory.hpp"
 #include <vector>
@@ -13,6 +14,8 @@ static vector<Player*> Shoot;
 static vector<Player*> Small;
 static vector<Player*> Power;
 static vector<Player*> Center;
+
+void sort( );
 
  bool is_number(const std::string& );
 void selectionSort(vector<Player*>&, vector<Player*> &, string);
@@ -54,7 +57,7 @@ void selectionSort(vector<Player*>&j , vector<Player*>& r, string pos)
        
         min_idx = i;
         for ( int b = i+1; b < j.size(); b++){
-            if (j.at(b)->rating() < j.at(min_idx)->rating()){
+            if (j.at(b)->rating() > j.at(min_idx)->rating()){
                 min_idx = b;
             }
         }
@@ -70,7 +73,7 @@ void selectionSort(vector<Player*>&j , vector<Player*>& r, string pos)
          
           min_idx = i;
           for ( int b = i+1; b < r.size(); b++){
-              if (r.at(b) < r.at(min_idx)){
+              if (r.at(b) > r.at(min_idx)){
                   min_idx = b;
               }
           }
@@ -104,9 +107,17 @@ Center=j;
 int main() {
 
      Factory fact;
-    
+   
     fact.ReadPlayers(Point, Shoot, Small, Power, Center);
  
+ vector<Player*>pg =  Point;
+ vector<Player*>sg = Shoot;
+ vector<Player*>sf =  Small;
+ vector<Player*> pf =  Power;
+ vector<Player*> cn= Center;
+
+sort();
+//selectionSort(pg, sg, 
 
 
 /* 
@@ -143,6 +154,13 @@ for (int i=0; i<Center.size(); i++){
    
   */
 vector<Player*> r;
+/*
+selectionSort(pg, r,"pg");
+selectionSort(sg, r,"shoot");
+selectionSort(sf, r,"sf");
+selectionSort(pf, r,"pf");
+selectionSort(cn, r,"cn");
+*/
              firstmenu (Point, r);
          
          
@@ -160,14 +178,14 @@ void OutPutPlayers(vector<Player*>&j, vector<Player*>& r, int counter){
         
            
             
-            if(counter > j.size())
-                counter = j.size();
+          //  if(counter > j.size())
+           //     counter = j.size();
                 
             if(counter>15 && counter <20)
                 counter =20;
             
             for (unsigned int i=beg; i<counter; i++){
-                cout<<"Position "<< i+1<< ": "<< j.at(i)->GetName()<<endl;
+	cout<<"Position "<< i+1<< ": "<< j.at(i)->GetName()<<", Rating: "<< j.at(i)->rating()<<endl;
             }
             
             cout << "Type N for Next Page, P for Previous Page"<< endl;
@@ -234,7 +252,7 @@ void outputRoster( vector<Player*>& j,  vector<Player*>& r){
     cout << endl << endl;
    cout<<"ROSTER"<<endl;
    for(unsigned i = 0; i<r.size();++i){
-    cout<<"Position "<< i+1<<" -- "<<r.at(i)->GetName()<<endl;
+    cout<<"Position "<< i+1<<" -- "<<r.at(i)->GetName()<<", Rating: "<< r.at(i)->rating()<<endl;
    }
    cout<<endl;
    menu(j,r);
@@ -249,7 +267,8 @@ void menu(vector<Player*>& j, vector<Player*>& r){
  vector<Player*> pf =  Power;
  vector<Player*> cn= Center;
 
-cout << Shoot.at(0)->GetName();
+
+//cout << Shoot.at(0)->GetName();
 
 cout<<"MENU"<<endl;
  
@@ -334,7 +353,7 @@ void removePlayer(vector<Player*>&j, vector<Player*>& r, string pos){
      cout << endl << endl;
     cout<<"ROSTER"<<endl;
     for(unsigned int i = 0; i<r.size();++i){
-     cout<<"Position "<< i+1<<" -- "<<r.at(i)->GetName()<<endl;
+     cout<<"Position "<< i+1<<" -- "<<r.at(i)->GetName()<<", Rating: "<< r.at(i)->rating()<<endl;
     }
 cout << endl<< endl;
          
@@ -387,7 +406,7 @@ cout << j.at(0)->GetName()<< endl;
                 
                 for (int i=beg; i<counter; i++){
 		
-                    cout<<"Position "<< i+1<< ": "<< j.at(i)->GetName()<<endl;
+                    cout<<"Position "<< i+1<< ": "<< j.at(i)->GetName()<<", Rating: "<< j.at(i)->rating()<<endl;
                 }
 
                 
@@ -460,3 +479,82 @@ bool is_number(const std::string& s)
     while (it != s.end() && std::isdigit(*it)) ++it;
     return !s.empty() && it == s.end();
 }
+
+
+
+void sort(){
+       int min_idx;
+
+
+    for (int i = 0; i < Point.size()-1; i++)
+    {
+
+        min_idx = i;
+        for ( int b = i+1; b < Point.size(); b++){
+            if (Point.at(b)->rating() > Point.at(min_idx)->rating()){
+                min_idx = b;
+            }
+        }
+
+        Player* u= Point.at(i);
+        Point.at(i) = Point.at(min_idx);
+        Point.at(min_idx)= u;
+
+    }
+        for (int i = 0; i < Shoot.size()-1; i++)
+    {
+
+        min_idx = i;
+        for ( int b = i+1; b < Shoot.size(); b++){
+            if (Shoot.at(b)->rating() > Shoot.at(min_idx)->rating()){
+                min_idx = b;
+            }
+        }
+
+        Player* u= Shoot.at(i);
+        Shoot.at(i) =Shoot.at(min_idx);
+        Shoot.at(min_idx)= u;
+
+    }
+        for (int i = 0; i < Small.size()-1; i++)
+    {
+
+        min_idx = i;
+        for ( int b = i+1; b < Small.size(); b++){
+            if (Small.at(b)->rating() > Small.at(min_idx)->rating()){
+                min_idx = b;
+            }
+        }
+
+        Player* u= Small.at(i);
+        Small.at(i) = Small.at(min_idx);
+        Small.at(min_idx)= u;
+
+    }
+        for (int i = 0; i < Power.size()-1; i++)
+    {
+
+        min_idx = i;
+        for ( int b = i+1; b < Power.size(); b++){
+            if (Power.at(b)->rating() > Power.at(min_idx)->rating()){
+                min_idx = b;
+            }
+        }
+ Player* u= Power.at(i);
+        Power.at(i) = Power.at(min_idx);
+        Power.at(min_idx)= u;
+    }
+        for (int i = 0; i < Center.size()-1; i++)
+    {
+        min_idx = i;
+        for ( int b = i+1; b < Center.size(); b++){
+            if (Center.at(b)->rating() > Center.at(min_idx)->rating()){
+                min_idx = b;
+            }
+        }
+        Player* u= Center.at(i);
+        Center.at(i) = Center.at(min_idx);
+        Center.at(min_idx)= u;
+
+}    }
+
