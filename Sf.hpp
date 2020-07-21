@@ -26,7 +26,9 @@ class Sf : public Player{
         Rebounds = new SfRb();
         FGPcnt = new PgSgSfFgPcnt();
 }
-
+	string GetPosition(){
+		return "Sf";
+	}
 };
 
 #endif

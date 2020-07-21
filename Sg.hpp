@@ -26,18 +26,9 @@ class Sg : public Player{
 	Rebounds = new PgSgRb();
 	FGPcnt = new PgSgSfFgPcnt();
 }
-/*
-        std::string FirstName();
-        std::string LastName();
-        double rating(Player*);
-
-
-        AstBase* Assist;
-        DefBase* Defense;
-        PpgBase* Points;
-        RebBase* Reboundss;
-        FgpcntBase* FGPcnt;
-*/
+string GetPosition(){
+	return "Sg";
+}
 };
 
 #endif

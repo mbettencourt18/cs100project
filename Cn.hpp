@@ -27,6 +27,9 @@ class Cn : public Player{
         FGPcnt = new PfCnFgPcnt();
 
 }
+string GetPosition(){
+	return "Cn";
+}
 };
 
 #endif

@@ -29,28 +29,9 @@ class Pg : public Player{
 	Rebounds = new PgSgRb();
 	FGPcnt = new PgSgSfFgPcnt();			
 }
-	/*
-	int rank;
-        string name;
-	string team;
-	double rebounds;
-	double points;
-	double assists;
-	double steals;
-	double blocks;
-	double FGPercent;
-	double FGA;
-	double threePA;
-	double threeP;
-        double rating();
-
-
-        AstBase* Assist;
-        DefBase* Defense;
-        PpgBase* Points;
-        RebBase* Reboundss;
-        FgpcntBase* FGPcnt;
-*/
+	string GetPosition(){
+		return "Pg";
+	}
 };
 
 #endif
