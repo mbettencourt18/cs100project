@@ -7,7 +7,7 @@ class PfCnAst : public AstBase{
 	public:
         PfCnAst() : AstBase () {};
         double rate(double x){
-                return 10 * x / 7;
+                return 10 * x / 5;
         }
 
 };
