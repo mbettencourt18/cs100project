@@ -15,20 +15,20 @@ static vector<Player*> Power;
 static vector<Player*> Center;
 
  bool is_number(const std::string& );
-void selectionSort(vector<int>&, vector<int> &);
-void outputRoster( vector<int> &,  vector<int> &);
-void addPlayer(vector<int> &, vector<int> &);
-void removePlayer(vector<int> &, vector<int> &);
+void selectionSort(vector<Player*>&, vector<Player*> &, string);
+void outputRoster( vector<Player*> &,  vector<Player*> &);
+void addPlayer(vector<Player*> &, vector<Player*> &,string);
+void removePlayer(vector<Player*> &, vector<Player*> &, string);
 
-void menu(vector<int> &, vector<int> &);
-void  firstmenu(vector<int> &j, vector<int> &r);
+void menu(vector<Player*> &, vector<Player*> &);
+void  firstmenu(vector<Player*> &j, vector<Player*> &r);
 
-         void  outputAllPlayers( vector<int>& ,  vector<int>& );
+         void  outputAllPlayers( vector<Player*>& ,  vector<Player*>& );
          
          
          
          
-         void  firstmenu(vector<int> &j, vector<int> &r){
+         void  firstmenu(vector<Player*> &j, vector<Player*> &r){
          int choice =0;
          
          cout << "Choose an option" << endl;
@@ -43,7 +43,7 @@ void  firstmenu(vector<int> &j, vector<int> &r);
          }
          
   
-void selectionSort(vector<int>&j , vector<int>& r)
+void selectionSort(vector<Player*>&j , vector<Player*>& r, string pos)
 {
     
     int min_idx;
@@ -54,12 +54,12 @@ void selectionSort(vector<int>&j , vector<int>& r)
        
         min_idx = i;
         for ( int b = i+1; b < j.size(); b++){
-            if (j.at(b) > j.at(min_idx)){
+            if (j.at(b)->rating() < j.at(min_idx)->rating()){
                 min_idx = b;
             }
         }
 
-        int u= j.at(i);
+        Player* u= j.at(i);
         j.at(i) = j.at(min_idx);
         j.at(min_idx)= u;
          
@@ -75,12 +75,23 @@ void selectionSort(vector<int>&j , vector<int>& r)
               }
           }
 
-                   int u= r.at(i);
+                   Player* u= r.at(i);
                   r.at(i) = r.at(min_idx);
                   r.at(min_idx)= u;
            
       }
-    
+if(pos == "shoot")
+Shoot=j;
+if(pos == "pg")
+Point=j;
+if(pos == "Pg")
+Power=j;
+if(pos == "sf")
+Small=j;
+if(pos == "cn")
+Center=j;
+ 
+   
     
     menu(j,r);
     
@@ -96,7 +107,9 @@ int main() {
     
     fact.ReadPlayers(Point, Shoot, Small, Power, Center);
  
- 
+
+
+/* 
  for (int i=0; i<Point.size(); i++){
    Point.at(i)->Display();
 
@@ -121,16 +134,16 @@ for (int i=0; i<Center.size(); i++){
 
  }
 
-    
-
+  */  
+/*
     vector<int> j;
     for (int i=1 ;i <=25; i++)
         j.push_back(i);
    vector<int> r;
    
-  
-
-             firstmenu (j,r);
+  */
+vector<Player*> r;
+             firstmenu (Point, r);
          
          
     
@@ -139,9 +152,9 @@ for (int i=0; i<Center.size(); i++){
    return 0;
 }
          
-void OutPutPlayers(vector<int>&j, vector<int>& r, int counter){
+void OutPutPlayers(vector<Player*>&j, vector<Player*>& r, int counter){
         string x= "hi";
-            
+ 	int beg=0;           
             
         while (!(x=="q" || x=="Q")){
         
@@ -153,8 +166,8 @@ void OutPutPlayers(vector<int>&j, vector<int>& r, int counter){
             if(counter>15 && counter <20)
                 counter =20;
             
-            for (unsigned int i=counter-5; i<counter; i++){
-                cout<<"Position "<< i+1<< ": "<< j.at(i)<<endl;
+            for (unsigned int i=beg; i<counter; i++){
+                cout<<"Position "<< i+1<< ": "<< j.at(i)->GetName()<<endl;
             }
             
             cout << "Type N for Next Page, P for Previous Page"<< endl;
@@ -171,7 +184,8 @@ void OutPutPlayers(vector<int>&j, vector<int>& r, int counter){
                 }
                 else {
                         counter=5+counter;
-                        cout << counter << endl;
+beg+=5;
+              //          cout << counter << endl;
                 }
             }
                    
@@ -182,7 +196,7 @@ void OutPutPlayers(vector<int>&j, vector<int>& r, int counter){
                     }
                     else {
                         counter= counter-5;
-                        
+                        beg-=5;
                     }
                 }
                 else if (x=="q"|| x=="Q"){
@@ -201,7 +215,7 @@ void OutPutPlayers(vector<int>&j, vector<int>& r, int counter){
     
 }
          
-         void  outputAllPlayers( vector<int>& j,  vector<int>& r){
+         void  outputAllPlayers( vector<Player*>& j,  vector<Player*>& r){
              cout << endl<< endl;
              int counter =5;
              
@@ -216,19 +230,28 @@ void OutPutPlayers(vector<int>&j, vector<int>& r, int counter){
              
          }
 
-void outputRoster( vector<int>& j,  vector<int>& r){
+void outputRoster( vector<Player*>& j,  vector<Player*>& r){
     cout << endl << endl;
    cout<<"ROSTER"<<endl;
    for(unsigned i = 0; i<r.size();++i){
-    cout<<"Position "<< i+1<<" -- "<<r.at(i)<<endl;
+    cout<<"Position "<< i+1<<" -- "<<r.at(i)->GetName()<<endl;
    }
    cout<<endl;
    menu(j,r);
 
 }
 
-void menu(vector<int>& j, vector<int>& r){
- cout<<"MENU"<<endl;
+void menu(vector<Player*>& j, vector<Player*>& r){
+ 
+ vector<Player*>pg =  Point;
+ vector<Player*>sg = Shoot;
+ vector<Player*>sf =  Small;
+ vector<Player*> pf =  Power;
+ vector<Player*> cn= Center;
+
+cout << Shoot.at(0)->GetName();
+
+cout<<"MENU"<<endl;
  
 cout<<"a - Add player"<<endl;
 cout<<"r - Remove player"<<endl;
@@ -241,15 +264,57 @@ cout<<"Choose an option:";
 char choice;
 cin>>choice;
 if(choice == 'a'){
+string p;
+cout << "Which position would you like to add? "<< endl;
+cin >> p;
 
-   addPlayer(j,r);
+if (p == "Shoot")
+   addPlayer(sg,r,"shoot");
+
+if (p == "Point")
+   addPlayer(pg,r, "pg");
+if (p == "Center")
+   addPlayer(cn,r, "cn");
+if (p == "Power")
+   addPlayer(pf,r, "pf");
+if (p ==" Small")
+   addPlayer(sf,r, "sf");
 }
 else if(choice == 'r'){
-   
-   removePlayer(j,r);
+   string p;
+cout << "Which position would you like to add? "<< endl;
+cin >> p;
+
+if (p == "Shoot")
+   removePlayer(sg,r,"shoot");
+
+if (p == "Point")
+   removePlayer(pg,r, "pg");
+if (p == "Center") 
+   removePlayer(cn,r, "cn");
+if (p == "Power")
+   removePlayer(pf,r, "pf");
+if (p ==" Small")
+   removePlayer(sf,r, "sf");
 }
+   
+
+
     else if(choice == 'u'){
-    outputAllPlayers(j,r);
+    string p;
+cout <<"Which position would you like to see the available positions for?"<< endl;
+cin>>p;
+
+if(p=="Shoot")
+outputAllPlayers(sg,r);
+if(p=="Point")
+outputAllPlayers(pg,r);
+if(p=="Small")
+outputAllPlayers(sf,r);
+if(p=="Power")
+outputAllPlayers(pf,r);
+if(p=="Center")
+outputAllPlayers(sg,r);	
  
 }
 else if(choice == 'o'){
@@ -265,11 +330,11 @@ else if(choice == 'q'){
 
 }
 
-void removePlayer(vector<int>&j, vector<int>& r){
+void removePlayer(vector<Player*>&j, vector<Player*>& r, string pos){
      cout << endl << endl;
     cout<<"ROSTER"<<endl;
-    for(unsigned i = 0; i<r.size();++i){
-     cout<<"Position "<< i+1<<" -- "<<r.at(i)<<endl;
+    for(unsigned int i = 0; i<r.size();++i){
+     cout<<"Position "<< i+1<<" -- "<<r.at(i)->GetName()<<endl;
     }
 cout << endl<< endl;
          
@@ -287,18 +352,18 @@ for(unsigned i =0;i<r.size();++i){
    }
 }
     
-    selectionSort(j,r);
+    selectionSort(j,r,pos);
     }
     else {
         cout << endl << "Invalid Input Try Again" << endl;
-        removePlayer(j,r);
+        removePlayer(j,r,pos);
            }
 }
 
 
-void addPlayer(vector<int>& j, vector<int>& r){
+void addPlayer(vector<Player*>& j, vector<Player*>& r, string pos){
     
-    
+cout << j.at(0)->GetName()<< endl;   
     if (r.size()>=5){
         cout << "max players"<< endl;
         menu(j,r);
@@ -310,8 +375,7 @@ void addPlayer(vector<int>& j, vector<int>& r){
             cout << endl<< endl;
             int counter =5;
             string x= "hi";
-                
-                
+             int beg = 0;
             while (!is_number(x)){
         
                 
@@ -321,9 +385,11 @@ void addPlayer(vector<int>& j, vector<int>& r){
                 if(counter>15 && counter <20)
                     counter =20;
                 
-                for (unsigned int i=counter-5; i<counter; i++){
-                    cout<<"Position "<< i+1<< ": "<< j.at(i)<<endl;
+                for (int i=beg; i<counter; i++){
+		
+                    cout<<"Position "<< i+1<< ": "<< j.at(i)->GetName()<<endl;
                 }
+
                 
                 cout << "Type N for Next Page, P for Previous Page"<< endl;
                          
@@ -339,7 +405,8 @@ void addPlayer(vector<int>& j, vector<int>& r){
             }
             else {
                     counter=5+counter;
-                    cout << counter << endl;
+         beg+=5;   
+       // cout << counter << endl;
             }
         }
                
@@ -350,7 +417,7 @@ void addPlayer(vector<int>& j, vector<int>& r){
                 }
                 else {
                     counter= counter-5;
-                    
+                    beg-=5;
                 }
             }
             else if (is_number(x)){
@@ -376,15 +443,16 @@ void addPlayer(vector<int>& j, vector<int>& r){
             j.erase(j.begin()+i);
         }
     }
-   selectionSort(j,r);
+   selectionSort(j,r,pos);
 }
         else {
             cout << endl << "Invalid Input. Try Again" << endl;
-            addPlayer(j,r);
-        }
+            addPlayer(j,r, pos);
+/*
+*/
             }
 }
-
+}
 
 bool is_number(const std::string& s)
 {
