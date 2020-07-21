@@ -10,7 +10,7 @@ class Team:public Base {
     public:
         /* Constructors */
         Team() { };
-	Team(string Name): TeamName(Name);
+	Team(string Name): TeamName(Name){};
         double rating(){
 		double rating;
 		for(int i = 0; i < 5; ++i){
@@ -22,7 +22,7 @@ class Team:public Base {
   	vector<Player*> roster;
 	void Display(){
 		for(int i = 0; i < 5; ++i){
-			list[i].Display();
+			list[i]->Display();
 		}
 	}
 	void AddPlayer(Player* player, int pos){
