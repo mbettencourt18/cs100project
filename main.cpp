@@ -22,7 +22,7 @@ bool is_number(const std::string& );
 void selectionSort(vector<Player*>&, vector<Team*> &, string);
 void outputRoster( Team*);
 void addPlayer(vector<Player*> &, Team*,string);
-void removePlayer(vector<Player*> &, Team*, string);
+void removePlayer(Team*);
 
 void menu(Team*);
 void  firstmenu();
@@ -337,7 +337,7 @@ void menu( Team* r){
 		
 	}
 	else if(choice == 'r'){
-   		string p;
+   		/*string p;
 		cout << "Which position would you like to add? "<< endl << "Pg Sg Sf Pf C" << endl;
 		cin >> p;
 		if (p == "Sg")
@@ -350,7 +350,8 @@ void menu( Team* r){
 		if (p == "Pf")
    			removePlayer(Power,r, "pf");
 		if (p ==" Sf")
- 	  		removePlayer(Small,r, "sf");
+ 	  		removePlayer(Small,r, "sf");*/
+		removePlayer(r);
 	}		
    	else if(choice == 'u'){
     		string p;
@@ -382,7 +383,7 @@ void menu( Team* r){
 
 }
 
-void removePlayer(vector<Player*>&j, Team* r, string pos){
+void removePlayer(Team* r){
      cout << endl << endl;
     cout<<"ROSTER"<<endl;
  /*   for(unsigned int i = 0; i<r.size();++i){
@@ -399,11 +400,31 @@ void removePlayer(vector<Player*>&j, Team* r, string pos){
 	int x;
 	cin>>x;
 	if (x<=5){
-		j.push_back(r->RemovePlayer(x));
-     		selectionSort(j,r,pos);
+		
+		Player* temp = r->RemovePlayer(x);
+		if(temp->GetPosition() == "Pg"){
+			Point.push_back(temp);
+     			selectionSort(Point,r,"Pg");
+		}
+		if(temp->GetPosition() == "Sg"){
+			Shoot.push_back(temp);
+			selectionSort(Shoot, r, "Sg");
+		}
+		if(temp->GetPosition() == "Sf"){
+			Small.push_back(temp);
+			selectionSort(Small, r, "Sf");
+		}
+		if(temp->GetPosition() == "Pf"){
+			Power.push_back(temp);
+			selectionSort(Power, r, "Pf");
+		}
+		if(temp->GetPosition() == "Cn"){
+			Center.push_back(temp);
+			selectionSort(Center, r, "Cn");
+		}
 	}else {
         	cout << endl << "Invalid Input Try Again" << endl;
-        	removePlayer(j,r,pos);
+        	removePlayer(r);
           }
 }
 
