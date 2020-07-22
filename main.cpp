@@ -323,17 +323,20 @@ void menu( Team* r){
 		cout << "Which position would you like to add? "<< endl << "Pg Sg Sf Pf C" << endl;
 		cin >> p;
 
-		if (p == "Sg")
+		if (p == "Sg" || p == "sg")
    			addPlayer(Shoot,r,"shoot");
 
-		if (p == "Pg")
+		else if (p == "Pg" || p == "pg")
    			addPlayer(Point,r, "pg");
-		if (p == "C")
+		else if (p == "C" || p == "c")
  			  addPlayer(Center,r, "cn");
-		if (p == "Pf")
+		else if (p == "Pf" || p == "pf")
    			addPlayer(Power,r, "pf");
-		if (p =="Sf")
+		else if (p =="Sf" || p == "sf")
    			addPlayer(Small,r, "sf");
+		else
+			cout << "Invalid position" << endl;
+			menu(r);
 		
 	}
 	else if(choice == 'r'){
@@ -355,18 +358,18 @@ void menu( Team* r){
 	}		
    	else if(choice == 'u'){
     		string p;
-		cout <<"Which position would you like to see the available players for?"<< endl << "Pg Sg Sf Pf C";
+		cout <<"Which position would you like to see the available players for?"<< endl << "Pg Sg Sf Pf C" << endl;
 		cin>>p;
 
-		if(p=="Sg")
+		if(p=="Sg" || p == "sg")
 			outputAllPlayers(Shoot,r);
-		if(p=="Pg")
+		if(p=="Pg" || p == "pg")
 			outputAllPlayers(Point,r);
-		if(p=="Sf")
+		if(p=="Sf" || p == "sf")
 			outputAllPlayers(Small,r);
-		if(p=="Pf")
+		if(p=="Pf" || p == "pf")
 			outputAllPlayers(Power,r);
-		if(p=="C")
+		if(p=="C" || p == "c")
 			outputAllPlayers(Center,r);	
  
 	}
