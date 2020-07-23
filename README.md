@@ -7,7 +7,7 @@
 ![Screenshot (22)_LI](https://user-images.githubusercontent.com/62957652/88324508-a31fe480-ccd8-11ea-9556-45e853656496.jpg)
 )
 
-![Untitled Diagram](https://user-images.githubusercontent.com/43631772/88323091-88e50700-ccd6-11ea-9592-b08a968b91d5.jpg)
+
 
 
 
