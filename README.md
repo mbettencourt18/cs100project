@@ -50,8 +50,8 @@
 *Faceoff* Allows the user to faceoff two user generated team rosters and will display the overall points scored.\
 
 ![Screenshot (18)](https://user-images.githubusercontent.com/62957652/88321537-30146f00-ccd4-11ea-89f0-de61556e287b.png)
-![Screenshot (19)](https://user-images.githubusercontent.com/62957652/88321552-3a366d80-ccd4-11ea-84b3-a64e7aacbc73.png)
 
+![Screenshot (20)](https://user-images.githubusercontent.com/62957652/88322659-e2006b00-ccd5-11ea-959c-dc08ded35fb1.png)
 
 *Restart League* Will reset the teams and exit the program
 
