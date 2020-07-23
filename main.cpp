@@ -408,9 +408,15 @@ void removePlayer(Team* r){
 	}
     
 	cout<<"Enter a position number to remove"<<endl;
+	string y;
+	cin>>y;
+	if(is_number(y) == false){
+		return;
+	}
+	stringstream iss(y);
 	int x;
-	cin>>x;
-	if (x<=r->TeamSize()){
+	iss >> x;
+	if (x<=r->TeamSize() && x > 0){
 		
 		Player* temp = r->RemovePlayer(x);
 		if(temp->GetPosition() == "Pg"){
