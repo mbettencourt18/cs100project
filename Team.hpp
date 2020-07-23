@@ -73,7 +73,7 @@ double fg;
                         if(rand()%100<=fg)
                                 a+=3;
                            }
-        cout<< a<< endl;
+        //cout<< a<< endl;
                 stats.push_back(a);
 
         }

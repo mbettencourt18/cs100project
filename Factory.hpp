@@ -136,7 +136,7 @@ class Factory {
 		ifstream file("All_Positions_Stats.txt");
     		string input;
     		if (file.is_open()) {
-     		   	cout << "yes open" << endl;
+     		   	cout << "Loading Players..." << endl;
     		}
     		else{
         		cout << "file was not found" << endl;
