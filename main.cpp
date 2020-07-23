@@ -607,7 +607,7 @@ void Versus(){
 			int FrstScore=0;
 			int ScndScore=0;
 //<<<<<<< HEAD
-			cout << "     Team " << First->GetName() <<"                                     " << "Team " << Second->GetName()<< endl;
+		//	cout << "     Team " << First->GetName() <<"                                     " << "Team " << Second->GetName()<< endl;
 			cout << endl;	
 
 //=======
