@@ -35,7 +35,7 @@ class Team:public Base {
 	}
 	Player* RemovePlayer(int index){
 		Player* temp = list.at(index-1);
-		list.erase(list.begin()+index-1);
+		list.erase(list.begin()+(index-1));
 		return temp;
 	}
 	void Sort(){
