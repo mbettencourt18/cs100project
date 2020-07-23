@@ -53,7 +53,7 @@
 ![Screenshot (19)](https://user-images.githubusercontent.com/62957652/88321552-3a366d80-ccd4-11ea-84b3-a64e7aacbc73.png)
 
 
-*Restart League* Will reset the team 
+*Restart League* Will reset the teams and exit the program
 
 **pic**
 
