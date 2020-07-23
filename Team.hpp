@@ -54,7 +54,7 @@ class Team:public Base {
 		return list.size();
 	}
 	
-	        void FaceOff(vector<int>&stats){
+	void FaceOff(vector<int>& stats){
 
 
      
