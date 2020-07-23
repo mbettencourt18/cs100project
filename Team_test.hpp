@@ -99,7 +99,7 @@ TEST(TEAM_TEST, RemovePlayer){
         tp->AddPlayer(p4);
         tp->AddPlayer(p5);	
 
-	Player* pt = tp->RemovePlayer(0);
+	Player* pt = tp->RemovePlayer(1);
 
 
 	
