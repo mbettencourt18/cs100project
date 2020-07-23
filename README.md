@@ -2,7 +2,7 @@
 
 **A**. The complete application use **Factory, Composite, and Stratgey**. Factory is used to create the list of players that the rest of the program relies on by creating Player objects from the text file that was passed in. Composite is used to generate the sub-classes that are composite to the Player Component with the leafs of classes obtain the individual stats corresponding from the *Rb, Base Def, Ast, FGPercent, and Ppg* classes. The last design pattern that was used was strategy in getting the rating from each player. These were implemented by calling the *Rb, Base Def, Ast, FGPercent, and Ppg* classes which used a different algorithm to rate the players based on the class given to the player.   
 
-**pic**
+
 ![S](https://user-images.githubusercontent.com/43631772/88321104-79b08a00-ccd3-11ea-83fe-b73547148d23.jpg)
 ![Screenshot (22)_LI](https://user-images.githubusercontent.com/62957652/88324508-a31fe480-ccd8-11ea-9556-45e853656496.jpg)
 ![Untitled Diagram (1)](https://user-images.githubusercontent.com/43631772/88324831-1d506900-ccd9-11ea-9f3b-b428c0fad0f2.jpg)
@@ -59,9 +59,9 @@
 
 *Restart League* Will reset the teams and exit the program
 
-**pic**
 
-**C**. The application can be run by entering **c++ -o main main.cpp ** and running ./main** 
+
+**C**. The application can be run by entering **c++ -o main main.cpp  and running ./main** 
 
 
 
