@@ -403,12 +403,20 @@ void removePlayer(Team* r){
 	r->Display();
 	cout << endl<< endl;
          
-
+	if(r->TeamSize() == 0){
+		return;
+	}
     
 	cout<<"Enter a position number to remove"<<endl;
+	string y;
+	cin>>y;
+	if(is_number(y) == false){
+		return;
+	}
+	stringstream iss(y);
 	int x;
-	cin>>x;
-	if (x<=5){
+	iss >> x;
+	if (x<=r->TeamSize() && x > 0){
 		
 		Player* temp = r->RemovePlayer(x);
 		if(temp->GetPosition() == "Pg"){
