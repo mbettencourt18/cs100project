@@ -34,7 +34,7 @@ void  outputAllPlayers( vector<Player*>& ,  Team* );
          
          
 void  firstmenu(){
-         int choice =0;
+         string choice;
          
          cout << "Choose an option" << endl;
          cout << "1. Create New Team"<<endl;
@@ -43,13 +43,14 @@ void  firstmenu(){
          cout << "4. Restart League"<< endl;
          cin >> choice;
          string tempName;
-         if (choice ==1){
+         if (choice =="1"){
          	cout << "Enter Team Name" << endl;
-		cin >> tempName;
+		cin.ignore();
+		getline(cin, tempName);
 		Team* temp = new Team(tempName);
 		TeamList.push_back(temp);
 		menu(TeamList.back());
-         }else if (choice == 2){
+         }else if (choice == "2"){
 		if(TeamList.size() == 0){
 			cout<< "No available teams, please create a team" << endl;
 			firstmenu();
@@ -59,7 +60,8 @@ void  firstmenu(){
 				cout << TeamList.at(i)->GetName() << endl;
 			}
 			cout << "Enter team name: " << endl;
-			cin >> tempName;
+			cin.ignore();
+			getline(cin, tempName);
 			bool check = false;
 			for(int j = 0; j < TeamList.size(); ++j){
 				if(tempName == TeamList.at(j)->GetName()){
@@ -72,9 +74,9 @@ void  firstmenu(){
 				firstmenu();
 			}
          	}
-	}else if(choice == 3){
+	}else if(choice == "3"){
 		Versus();
-	}else if(choice != 4){
+	}else if(choice != "4"){
 		cout << "Invalid input, try again" << endl;
 		firstmenu();
 	}else{
@@ -527,9 +529,9 @@ void Versus(){
 		Team *First;
 		Team* Second;
 		string tempName;
-
-		if(TeamList.size() > 2){
-			cout<< "No available teams, please create a team" << endl;
+		string line = "________________________________________________________________________";
+		if(TeamList.size() < 2){
+			cout<< "Not enough available teams, please create a team" << endl;
 			firstmenu();
 		}
 		else{
@@ -538,7 +540,8 @@ void Versus(){
 				cout << TeamList.at(i)->GetName() << endl;
 			}
 			cout << "Enter First Team's name: " << endl;
-			cin >> tempName;
+			cin.ignore();
+			getline(cin, tempName);
 			bool check = false;
 			for(int j = 0; j < TeamList.size(); ++j){
 				if(tempName == TeamList.at(j)->GetName()){
@@ -559,7 +562,8 @@ void Versus(){
 				cout << TeamList.at(i)->GetName() << endl;
 			}
 			cout << "Enter Second Team's name: " << endl;
-			cin >> tempName;
+			//cin.ignore();
+			getline(cin, tempName);
 			//bool check = false;
 			for(int j = 0; j < TeamList.size(); ++j){
 				if(tempName == TeamList.at(j)->GetName()){
@@ -578,7 +582,7 @@ void Versus(){
 			vector<int> SecondTeam; 
 			Second->FaceOff(SecondTeam);
 			int u;
-			if (FirstTeam.size()<=SecondTeam.size()){
+			if (FirstTeam.size()>= SecondTeam.size()){
 				u= SecondTeam.size();
 			}
 			else {
@@ -586,25 +590,28 @@ void Versus(){
 			}
 			int FrstScore=0;
 			int ScndScore=0;
-			cout << "Team " << First->GetName() <<"                   " << "Team " << Second->GetName();
+			cout << endl << endl << line  << endl <<  "Team " << First->GetName() <<"              vs               " << "Team " << Second->GetName() << endl<< endl;
 			for (int i=0 ; i<u;i++){
 				FrstScore+=FirstTeam.at(i);
-				ScndScore=+SecondTeam.at(i);
+				ScndScore+=SecondTeam.at(i);
 				cout << First->GetPlayerName(i) << " " << FirstTeam.at(i) << "                      " << Second->GetPlayerName(i) << " " << SecondTeam.at(i) << endl << endl;
 			}
 			
-			cout << "                  Total"<< endl;
-			cout << FrstScore << "                   " << ScndScore<< endl;
+			cout << "                       Total"<< endl;
+			cout << FrstScore << "                                                   " << ScndScore<< endl << endl;
 			if (FrstScore> ScndScore){
 				cout << "Team " << First->GetName() << " wins"<< endl;
+			cout << line  << endl << endl;
 				firstmenu();
 			}
 			else if (FrstScore< ScndScore){
 				cout << "Team " << Second->GetName() << " wins"<< endl;
+				cout<< line  << endl << endl;
 				firstmenu();
 			}
 			else{ 
 				cout << "Tie" << endl;
+				cout<<line  << endl << endl;
 				firstmenu();
 			}
 		}
