@@ -459,7 +459,7 @@ void addPlayer(vector<Player*>& j, Team* r, string pos){
                     counter = j.size();
                 
 		      int u=j.size();
-        while (u%10!=0){
+        while (u%5!=0){
             u--;
         }
             if(counter>(u-5) && counter <u)
@@ -519,7 +519,7 @@ void addPlayer(vector<Player*>& j, Team* r, string pos){
 
         int b = stoi(x);
         
-        if(b<j.size()){
+        if(b<=j.size()){
     for (int i=0; i <j.size(); i++){
         if(i+1==b){
             r->AddPlayer(j.at(i));
