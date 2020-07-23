@@ -77,7 +77,9 @@ class Team:public Base {
 }		
 	
 	
-	
+string GetPlayerName(int index){
+	return list.at(index)->GetName();
+}
 };
 
 #endif
