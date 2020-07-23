@@ -220,11 +220,15 @@ void OutPutPlayers(vector<Player*>&j, Team* r, int counter){
             
           //  if(counter > j.size())
            //     counter = j.size();
-                
-            if(counter>15 && counter <20)
-                counter =20;
+        int u=j.size();    
+	while (u%10!=0){
+	    u--;
+	}
+            if(counter>(u-5) && counter <u)
+                counter =u;
             
             for (unsigned int i=beg; i<counter; i++){
+	if(i <j.size())
 	cout<<"Position "<< i+1<< ": "<< j.at(i)->GetName()<<", Rating: "<< j.at(i)->rating()<<endl;
             }
             
@@ -451,10 +455,17 @@ void addPlayer(vector<Player*>& j, Team* r, string pos){
                 
                 if(counter > j.size())
                     counter = j.size();
-                    
-                if(counter>15 && counter <20)
-                    counter =20;
                 
+		      int u=j.size();
+        while (u%10!=0){
+            u--;
+        }
+            if(counter>(u-5) && counter <u)
+                counter =u;
+    
+             /*   if(counter>15 && counter <20)
+                    counter =20;
+               */ 
                 for (int i=beg; i<counter; i++){
 		
                     cout<<"Position "<< i+1<< ": "<< j.at(i)->GetName()<<", Rating: "<< j.at(i)->rating()<<endl;
@@ -524,6 +535,8 @@ void addPlayer(vector<Player*>& j, Team* r, string pos){
 }
 }
 void Versus(){
+
+
 		Team *First;
 		Team* Second;
 		string tempName;
@@ -572,11 +585,14 @@ void Versus(){
 				
 			}
 			}
-			
+	
 			vector<int> FirstTeam;
 			First->FaceOff(FirstTeam);
 			vector<int> SecondTeam; 
 			Second->FaceOff(SecondTeam);
+			
+
+			if(FirstTeam.size()==SecondTeam.size()){
 			int u;
 			if (FirstTeam.size()<=SecondTeam.size()){
 				u= SecondTeam.size();
@@ -586,28 +602,52 @@ void Versus(){
 			}
 			int FrstScore=0;
 			int ScndScore=0;
-			cout << "Team " << First->GetName() <<"                   " << "Team " << Second->GetName();
+			cout << "     Team " << First->GetName() <<"                                     " << "Team " << Second->GetName()<< endl;
+			cout << endl;	
+
 			for (int i=0 ; i<u;i++){
 				FrstScore+=FirstTeam.at(i);
-				ScndScore=+SecondTeam.at(i);
+				ScndScore+=SecondTeam.at(i);
 				cout << First->GetPlayerName(i) << " " << FirstTeam.at(i) << "                      " << Second->GetPlayerName(i) << " " << SecondTeam.at(i) << endl << endl;
 			}
-			
-			cout << "                  Total"<< endl;
+			cout << endl<< endl<< endl;
+			cout << "          Total"<< endl;
 			cout << FrstScore << "                   " << ScndScore<< endl;
 			if (FrstScore> ScndScore){
-				cout << "Team " << First->GetName() << " wins"<< endl;
+				cout <<endl<< "   Team " << First->GetName() << " wins"<< endl;
+				cout << endl << endl;
 				firstmenu();
 			}
 			else if (FrstScore< ScndScore){
-				cout << "Team " << Second->GetName() << " wins"<< endl;
-				firstmenu();
+				cout << endl<<"   Team " << Second->GetName() << " wins"<< endl;
+		cout << endl << endl;	
+	firstmenu();
 			}
 			else{ 
-				cout << "Tie" << endl;
+				cout <<endl<< "   Tie" << endl;
+				cout << endl << endl;
 				firstmenu();
 			}
+
 		}
+
+		else {
+		if (FirstTeam.size()>SecondTeam.size()){
+		int p = FirstTeam.size()-SecondTeam.size();
+		cout << "Team " << First->GetName() << " has " << p << " more players than Team " << Second->GetName()<<". Please add " << p <<" more players to Team " << Second->GetName()<< " to use face-off." << endl;
+		cout << endl;
+		firstmenu();
+	
+}			else{
+				                int p = SecondTeam.size()-FirstTeam.size();
+                cout << "Team " << Second->GetName() << " has " << p << " more players than Team " << First->GetName()<<". Please add " << p <<" more players to Team " << First->GetName()<< " to use face-off." << endl;
+                cout << endl;
+                firstmenu();
+
+}
+}
+}
+
 		
          	
 }
