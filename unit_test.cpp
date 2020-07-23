@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-//#include "Function_test.hpp"
+#include "Function_test.hpp"
 #include "Team_test.hpp"
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
