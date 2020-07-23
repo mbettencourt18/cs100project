@@ -85,7 +85,8 @@ TEST(TEAM_TEST, Display_Test){
 }
 TEST(TEAM_TEST, RemovePlayer){
 
-	Player* p1 = new Sg(2, "Bradley Beal",4.2,30.6,6.1,1.2,0.4,22.9,.455,8.4,.353 );
+
+        Player* p1 = new Sg(2, "Bradley Beal",4.2,30.6,6.1,1.2,0.4,22.9,.455,8.4,.353 );
         Player* p2 = new Pg(4, "Trae Young",4.2,29.6,9.3,1.1,0.1,.437,20.8,9.5,.361 );
         Player* p3 = new Pf(2, "Bradley Beal",4.2,30.6,6.1,1.2,0.4,22.9,.455,8.4,.353 );
         Player* p4 = new Cn(10,"Karl-Anthony Towns",10.2,26.5,4.4,0.9,1.2,0.508,17.8,7.9,0.412 );
@@ -97,9 +98,13 @@ TEST(TEAM_TEST, RemovePlayer){
         tp->AddPlayer(p2);
         tp->AddPlayer(p3);
         tp->AddPlayer(p4);
-        tp->AddPlayer(p5);	
+        tp->AddPlayer(p5);
+        EXPECT_EQ(tp->TeamSize(),5);
+        Player* pt = tp->RemovePlayer(2);
+         EXPECT_EQ(tp->TeamSize(),4);
 
-	Player* pt = tp->RemovePlayer(1);
+
+
 
 
 	
