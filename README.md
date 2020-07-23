@@ -15,36 +15,43 @@
 
 *Create New Team* allows the user to Enter Team name. The menu will then Prompt the user to **Add Player, Remove Player, Output All Available Players, Output roster, and Back** 
 
-**Pic**
+![Screenshot (12)](https://user-images.githubusercontent.com/62957652/88321357-e166d500-ccd3-11ea-83e7-2d9185229ca3.png)
+
 
 
 *Add Player* will allow the user to select a player from an individual position consisting from **Pg, Sg, Sf, Pf, C**. Selecting either position will prompt the to select a player from that given position. The players will be displayed along with their overall stat ranking. Players can be chosen by entering the position number and user can select from *Next Page or Previous Page* to obatin players.
 
-**Pic**
+![Screenshot (13)](https://user-images.githubusercontent.com/62957652/88321400-f6436880-ccd3-11ea-8233-fb2901421b55.png)
+
 
 *Remove Player* will allow the user to remove a given player from their team by just entering the position number. 
 
-**Pic**
+![Screenshot (14)](https://user-images.githubusercontent.com/62957652/88321437-04918480-ccd4-11ea-8018-00125bf248f5.png)
+
 
 
 *Output All Available Players* allows the user to see set roster.
 
-**Pic**
+![Screenshot (15)](https://user-images.githubusercontent.com/62957652/88321463-107d4680-ccd4-11ea-8b76-4fcfb0358038.png)
 
 
 *Output roster* outputs the user's team roster
 
 
-**pic**
+![Screenshot (16)](https://user-images.githubusercontent.com/62957652/88321484-1a06ae80-ccd4-11ea-873e-5d1e34fd0482.png)
+
 
 *Resume Old Team* allows the user to make player changes or output roster
 
-**pic**
+![Screenshot (17)](https://user-images.githubusercontent.com/62957652/88321507-2559da00-ccd4-11ea-8bd5-cc481663e1a9.png)
+
 
 
 *Faceoff* Allows the user to faceoff two user generated team rosters and will display the overall points scored.\
 
-**pic**
+![Screenshot (18)](https://user-images.githubusercontent.com/62957652/88321537-30146f00-ccd4-11ea-89f0-de61556e287b.png)
+![Screenshot (19)](https://user-images.githubusercontent.com/62957652/88321552-3a366d80-ccd4-11ea-84b3-a64e7aacbc73.png)
+
 
 *Restart League* Will reset the team 
 
