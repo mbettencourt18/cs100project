@@ -222,11 +222,15 @@ void OutPutPlayers(vector<Player*>&j, Team* r, int counter){
             
           //  if(counter > j.size())
            //     counter = j.size();
-                
-            if(counter>15 && counter <20)
-                counter =20;
+        int u=j.size();    
+	while (u%10!=0){
+	    u--;
+	}
+            if(counter>(u-5) && counter <u)
+                counter =u;
             
             for (unsigned int i=beg; i<counter; i++){
+	if(i <j.size())
 	cout<<"Position "<< i+1<< ": "<< j.at(i)->GetName()<<", Rating: "<< j.at(i)->rating()<<endl;
             }
             
@@ -453,10 +457,17 @@ void addPlayer(vector<Player*>& j, Team* r, string pos){
                 
                 if(counter > j.size())
                     counter = j.size();
-                    
-                if(counter>15 && counter <20)
-                    counter =20;
                 
+		      int u=j.size();
+        while (u%5!=0){
+            u--;
+        }
+            if(counter>(u-5) && counter <u)
+                counter =u;
+    
+             /*   if(counter>15 && counter <20)
+                    counter =20;
+               */ 
                 for (int i=beg; i<counter; i++){
 		
                     cout<<"Position "<< i+1<< ": "<< j.at(i)->GetName()<<", Rating: "<< j.at(i)->rating()<<endl;
@@ -508,7 +519,7 @@ void addPlayer(vector<Player*>& j, Team* r, string pos){
 
         int b = stoi(x);
         
-        if(b<j.size()){
+        if(b<=j.size()){
     for (int i=0; i <j.size(); i++){
         if(i+1==b){
             r->AddPlayer(j.at(i));
@@ -526,6 +537,8 @@ void addPlayer(vector<Player*>& j, Team* r, string pos){
 }
 }
 void Versus(){
+
+
 		Team *First;
 		Team* Second;
 		string tempName;
@@ -576,11 +589,14 @@ void Versus(){
 				
 			}
 			}
-			
+	
 			vector<int> FirstTeam;
 			First->FaceOff(FirstTeam);
 			vector<int> SecondTeam; 
 			Second->FaceOff(SecondTeam);
+			
+
+			if(FirstTeam.size()==SecondTeam.size()){
 			int u;
 			if (FirstTeam.size()>= SecondTeam.size()){
 				u= SecondTeam.size();
@@ -590,12 +606,37 @@ void Versus(){
 			}
 			int FrstScore=0;
 			int ScndScore=0;
+//<<<<<<< HEAD
+			cout << "     Team " << First->GetName() <<"                                     " << "Team " << Second->GetName()<< endl;
+			cout << endl;	
+
+//=======
 			cout << endl << endl << line  << endl <<  "Team " << First->GetName() <<"              vs               " << "Team " << Second->GetName() << endl<< endl;
+//>>>>>>> 95900fdda3b4ed6bbe66aded6265bcafa95fa115
 			for (int i=0 ; i<u;i++){
 				FrstScore+=FirstTeam.at(i);
 				ScndScore+=SecondTeam.at(i);
 				cout << First->GetPlayerName(i) << " " << FirstTeam.at(i) << "                      " << Second->GetPlayerName(i) << " " << SecondTeam.at(i) << endl << endl;
 			}
+//<<<<<<< HEAD
+			cout << endl<< endl<< endl;
+			cout << "          Total"<< endl;
+			cout << FrstScore << "                   " << ScndScore<< endl;
+			if (FrstScore> ScndScore){
+				cout <<endl<< "   Team " << First->GetName() << " wins"<< endl;
+				cout << endl << endl;
+				firstmenu();
+			}
+			else if (FrstScore< ScndScore){
+				cout << endl<<"   Team " << Second->GetName() << " wins"<< endl;
+		cout << endl << endl;	
+	firstmenu();
+}
+			
+			else{ 
+				cout <<endl<< "   Tie" << endl;
+				cout << endl << endl;
+//=======
 			
 			cout << "                       Total"<< endl;
 			cout << FrstScore << "                                                   " << ScndScore<< endl << endl;
@@ -612,9 +653,29 @@ void Versus(){
 			else{ 
 				cout << "Tie" << endl;
 				cout<<line  << endl << endl;
+//>>>>>>> 95900fdda3b4ed6bbe66aded6265bcafa95fa115
 				firstmenu();
 			}
+
 		}
+}
+		else {
+		if (FirstTeam.size()>SecondTeam.size()){
+		int p = FirstTeam.size()-SecondTeam.size();
+		cout << "Team " << First->GetName() << " has " << p << " more players than Team " << Second->GetName()<<". Please add " << p <<" more players to Team " << Second->GetName()<< " to use face-off." << endl;
+		cout << endl;
+		firstmenu();
+	
+}			else{
+				                int p = SecondTeam.size()-FirstTeam.size();
+                cout << "Team " << Second->GetName() << " has " << p << " more players than Team " << First->GetName()<<". Please add " << p <<" more players to Team " << First->GetName()<< " to use face-off." << endl;
+                cout << endl;
+                firstmenu();
+
+}
+}
+}
+
 		
          	
 }
