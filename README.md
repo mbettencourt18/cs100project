@@ -5,6 +5,8 @@
 **pic**
 ![S](https://user-images.githubusercontent.com/43631772/88321104-79b08a00-ccd3-11ea-83fe-b73547148d23.jpg)
 
+![Untitled Diagram](https://user-images.githubusercontent.com/43631772/88323091-88e50700-ccd6-11ea-9592-b08a968b91d5.jpg)
+
 
 
 **B**. The application generates a menu display. Allowing the user to choose between generated commands to **Create New Team, Resume Old Team, Faceoff and Restart League** 
