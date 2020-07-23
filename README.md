@@ -3,7 +3,7 @@
 **A**. The complete application use **Decorator, Composite, and Stratgey**. Decorator is used to decorate the Player sub-classes *PG, Sg, Sf, Cn and Pf* with the players from the *All_Positions_Stats.txt* file. Composite is used to generate the sub-classes that are composite to the Player Component with the leafs of classes obtain the individual stats corresponding from the *Rb, Base Def, Ast, and Ppg* classes. The last design pattern that was used was strategy in getting the ranking from each player. These were implemented by calling the *FgPcnt* classes which used a different algorithm to rate the players based on positin.   
 
 **pic**
-
+![S](https://user-images.githubusercontent.com/43631772/88321104-79b08a00-ccd3-11ea-83fe-b73547148d23.jpg)
 
 
 
