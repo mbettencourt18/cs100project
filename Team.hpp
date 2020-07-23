@@ -50,8 +50,34 @@ class Team:public Base {
 		}
 	}			
 	int TeamSize(){
+	
 		return list.size();
 	}
+	
+	vector<int> FaceOff(){
+		
+		
+	vector<int> stats;
+		
+		
+	for(int i=0; i<list.size(); i++){
+		int a=0;
+		for (int j=1; j<=list.at(i)->FGA-list.at(i)->threePA; j++){
+			if(rand%100<=list.at(i)->FGpcnt)
+				a+=2;
+			   }
+		for (int j=1; j<=list.at(i)->threePA; j++){
+			if(rand%100<=list.at(i)->threeP)
+				a+=3;
+			   }
+	
+		stats.push_back(a);
+	}
+		return stats;
+}		
+	
+	
+	
 };
 
 #endif
