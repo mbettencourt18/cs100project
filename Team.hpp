@@ -54,28 +54,31 @@ class Team:public Base {
 		return list.size();
 	}
 	
-	vector<int> FaceOff(){
-		
-		
-	vector<int> stats;
-		
-		
-	for(int i=0; i<list.size(); i++){
-		int a=0;
-		for (int j=1; j<=list.at(i)->FGA-list.at(i)->threePA; j++){
-			if(rand%100<=list.at(i)->FGpcnt)
-				a+=2;
-			   }
-		for (int j=1; j<=list.at(i)->threePA; j++){
-			if(rand%100<=list.at(i)->threeP)
-				a+=3;
-			   }
-	
-		stats.push_back(a);
-	}
-		return stats;
-}		
-	
+	        void FaceOff(vector<int>&stats){
+
+
+     
+        double three;
+double fg;
+
+        for(int i=0; i<list.size(); i++){
+                int a=0;
+                for (int j=1; j<=list.at(i)->FGA-list.at(i)->threePA; j++){
+                        three = list.at(i)->FGPercent*100;
+                        if(rand()%100<=three)
+                                a+=2;
+                           }
+                for (int j=1; j<=list.at(i)->threePA; j++){
+                        fg = list.at(i)->threeP*100;
+                        if(rand()%100<=fg)
+                                a+=3;
+                           }
+        cout<< a<< endl;
+                stats.push_back(a);
+
+        }
+
+}	
 	
 string GetPlayerName(int index){
 	return list.at(index)->GetName();
