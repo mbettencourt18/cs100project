@@ -18,6 +18,7 @@ static vector<Team*> TeamList;
 
 void sort( );
 
+void Versus();
 bool is_number(const std::string& );
 void selectionSort(vector<Player*>&, vector<Team*> &, string);
 void outputRoster( Team*);
@@ -522,6 +523,95 @@ void addPlayer(vector<Player*>& j, Team* r, string pos){
             }
 }
 }
+void Versus(){
+		Team *First;
+		Team* Second;
+
+		if(TeamList.size() > 2){
+			cout<< "No available teams, please create a team" << endl;
+			firstmenu();
+		}
+		else{
+			cout << "Available Teams: " << endl;
+			for(int i = 0; i < TeamList.size(); ++i){
+				cout << TeamList.at(i)->GetName() << endl;
+			}
+			cout << "Enter First Team's name: " << endl;
+			cin >> tempName;
+			bool check = false;
+			for(int j = 0; j < TeamList.size(); ++j){
+				if(tempName == TeamList.at(j)->GetName()){
+					First = TeamList.at(j);
+					check = true;
+				}
+			}
+			if(check == false){
+				cout << "Not an available team" << endl;
+				Versus();
+			}
+			check = false;
+			
+			while (check==false){
+				
+			cout << "Available Teams: " << endl;
+			for(int i = 0; i < TeamList.size(); ++i){
+				cout << TeamList.at(i)->GetName() << endl;
+			}
+			cout << "Enter Second Team's name: " << endl;
+			cin >> tempName;
+			bool check = false;
+			for(int j = 0; j < TeamList.size(); ++j){
+				if(tempName == TeamList.at(j)->GetName()){
+					Second = TeamList.at(j);
+					check = true;
+				}
+			}
+			if(check == false){
+				cout << "Not an available team" << endl;
+				
+			}
+			}
+			
+			vector<int> FirstTeam = First->FaceOff();
+			vector<int> SecondTeam = Second->FaceOff();
+			int u;
+			if (FirstTeam.size()<=SecondTeam.size()){
+				u= SecondTeam.size();
+			}
+			else {
+			u= FirstTeam.size();
+			}
+			int FrstScore=0;
+			int ScndScore=0;
+			cout << "Team " << First->GetName() <<"                   " << "Team " << Second->GetName();
+			for (int i=0 ; i<u;i++){
+				FrstScore+=FirstTeam.at(i);
+				ScndScore=+SecondTeam.at(i)
+				cout << FirstTeam.at(i) << "                      " << SecondTeam.at(i);
+			}
+			
+			cout << "                  Total"<< endl;
+			cout << FrstScore << "                   " << ScndScore<< endl;
+			if (FrstScore> ScndScore){
+				cout << "Team " << First->GetName() << " wins"<< endl;
+				firstmenu();
+			}
+			else if (FrstScore< ScndScore){
+				cout << "Team " << Second->GetName() << " wins"<< endl;
+				firstmenu();
+			}
+			else{ 
+				cout << "Tie" << endl;
+				firstmenu();
+			}
+		}
+		
+         	
+}
+
+
+
+
 
 bool is_number(const std::string& s)
 {
@@ -607,4 +697,6 @@ void sort(){
         Center.at(min_idx)= u;
 
 }    }
+
+
 
