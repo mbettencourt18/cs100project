@@ -73,7 +73,11 @@ double fg;
                         if(rand()%100<=fg)
                                 a+=3;
                            }
+//<<<<<<< HEAD
        // cout<< a<< endl;
+//=======
+        //cout<< a<< endl;
+//>>>>>>> 45a48c7795c191c1b0238f1d2de2865cacecb43d
                 stats.push_back(a);
 
         }
