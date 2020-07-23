@@ -10,7 +10,7 @@
 **B**. The application generates a menu display. Allowing the user to choose between generated commands to **Create New Team, Resume Old Team, Faceoff and Restart League** 
 
 
-![alt text](https://ibb.co/5M2GrR8)
+![First Picture](https://ibb.co/5M2GrR8)
 
 *Create New Team* allows the user to Enter Team name. The menu will then Prompt the user to **Add Player, Remove Player, Output All Available Players, Output roster, and Back** 
 
