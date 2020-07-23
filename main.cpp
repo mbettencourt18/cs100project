@@ -122,7 +122,7 @@ void selectionSort(vector<Player*>&j , Team* r, string pos)
            
       }
       */
-if(pos == "shoot")
+/*if(pos == "shoot"
 Shoot=j;
 if(pos == "pg")
 Point=j;
@@ -132,10 +132,10 @@ if(pos == "sf")
 Small=j;
 if(pos == "cn")
 Center=j;
- 
+ */
    
     
-    menu(r);
+    //menu(r);
     
 }
 
@@ -268,7 +268,7 @@ beg+=5;
 
         
          cout << endl<< endl;
-         menu(r);
+         //menu(r);
     
 }
          
@@ -282,17 +282,14 @@ void  outputAllPlayers( vector<Player*>& j,  Team* r){
             cout<<"Position "<< i+1<< ": "<< j.at(i)<<endl;
            }
              */
-             
-        
-             
-         }
+}
 
 void outputRoster(Team* r){
     cout << endl << endl;
    cout<<"ROSTER"<<endl;
 	r->Display();
    cout<<endl;
-   menu(r);
+  // menu(r);
 
 }
 
@@ -336,7 +333,7 @@ void menu( Team* r){
    			addPlayer(Small,r, "sf");
 		else
 			cout << "Invalid position" << endl;
-			menu(r);
+		menu(r);
 		
 	}
 	else if(choice == 'r'){
@@ -355,6 +352,7 @@ void menu( Team* r){
 		if (p ==" Sf")
  	  		removePlayer(Small,r, "sf");*/
 		removePlayer(r);
+		menu(r);
 	}		
    	else if(choice == 'u'){
     		string p;
@@ -371,10 +369,11 @@ void menu( Team* r){
 			outputAllPlayers(Power,r);
 		if(p=="C" || p == "c")
 			outputAllPlayers(Center,r);	
- 
+ 		menu(r);
 	}
 	else if(choice == 'o'){
    		outputRoster(r);
+		menu(r);
 	}
 	else if(choice == 'q'){
     		firstmenu();
@@ -436,7 +435,7 @@ void addPlayer(vector<Player*>& j, Team* r, string pos){
    
     if (r->TeamSize()>=5){
         cout << "max players"<< endl;
-        menu(r);
+       // menu(r);
     }
     
     
